@@ -12,16 +12,11 @@ body {
     color: white;
 }
 
-/* HERO HEADER WITH AIRCRAFT IMAGE */
 header {
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
     url("https://images.unsplash.com/photo-1540962351504-03099e0a754b") center/cover;
     padding: 80px 20px;
     text-align: center;
-}
-
-header h1 {
-    font-size: 42px;
 }
 
 section {
@@ -30,30 +25,21 @@ section {
     margin: auto;
 }
 
-h2 {
-    color: #00c6ff;
-}
-
-/* GLASS CARD STYLE */
 .card {
     background: rgba(255,255,255,0.08);
     padding: 20px;
     margin-top: 20px;
     border-radius: 10px;
-    backdrop-filter: blur(8px);
 }
 
-/* PROJECT IMAGES */
-.project-img {
-    width: 100%;
-    margin-top: 15px;
-    border-radius: 10px;
+.project-link {
+    display: block;
+    text-decoration: none;
+    color: white;
 }
 
-footer {
-    text-align: center;
-    padding: 20px;
-    background: rgba(0,0,0,0.5);
+.project-link:hover {
+    transform: scale(1.02);
 }
 </style>
 </head>
@@ -70,39 +56,38 @@ footer {
 
 <h2>About Me</h2>
 <div class="card">
-<p>An aeronautical engineering graduate from the University of South Wales with experience in computational analysis, aircraft design and engineering simulation. My work focuses on applying CFD and FEA to optimise aerodynamic performance and structural efficiency. I am currently based in the UK and seeking opportunities within the aviation and advanced engineering sectors.</p>
+<p>Aeronautical engineering graduate from the University of South Wales specialising in CFD, FEA and aircraft design. Based in the UK and seeking opportunities in aviation and advanced engineering sectors.</p>
 </div>
 
 <h2>Projects</h2>
 
+<a class="project-link" href="project1.html">
 <div class="card">
-<h3>Thrust Vector Control using Jet Vanes</h3>
-<p>Designed and analysed a thrust vector control system using simulation-driven engineering methods.</p>
-<img class="project-img" src="https://images.unsplash.com/photo-1580674285054-bed31e145f59">
+<h3>Thrust Vector Control Using Jet Vanes</h3>
+<p>Click to view full project details →</p>
 </div>
+</a>
 
+<a class="project-link" href="project2.html">
 <div class="card">
-<h3>SAE Aero Design Competitions</h3>
-<p>Technical Lead responsible for aerodynamic analysis, structural evaluation and CAD modelling.</p>
-<img class="project-img" src="https://images.unsplash.com/photo-1517976487492-5750f3195933">
+<h3>SAE Aero Design Aircraft</h3>
+<p>Click to view full project details →</p>
 </div>
+</a>
 
+<a class="project-link" href="project3.html">
 <div class="card">
 <h3>Business Jet Design, Analysis and Simulation</h3>
-<p>Designed an 8-passenger business jet by calculating Take-off Weight (TOW) and deriving aircraft dimensions. Created a SolidWorks CAD model, performed structural simulation and evaluated performance using Merlin Simulator.</p>
-<img class="project-img" src="https://images.unsplash.com/photo-1508615070457-7baeba4003ab">
+<p>Click to view full project details →</p>
 </div>
+</a>
 
+<a class="project-link" href="project4.html">
 <div class="card">
-<h3>Investigation of the Aerodynamics of a Bio-Inspired Blended Wing Body</h3>
-<p>Designed and optimised a bio-inspired Blended-Wing-Body aircraft using SolidWorks and ANSYS Fluent. Conducted mesh convergence and parametric winglet analysis to maximise Lift-to-Drag ratio.</p>
-<img class="project-img" src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05">
+<h3>Bio-Inspired Blended Wing Body Aircraft</h3>
+<p>Click to view full project details →</p>
 </div>
-
-<h2>Skills</h2>
-<div class="card">
-<p>ANSYS • SolidWorks • MATLAB • CFD • FEA • CAD Modelling</p>
-</div>
+</a>
 
 <h2>Contact</h2>
 <div class="card">
@@ -111,10 +96,6 @@ footer {
 </div>
 
 </section>
-
-<footer>
-<p>© 2026 Vedavyas Rokalaboina</p>
-</footer>
 
 </body>
 </html>
