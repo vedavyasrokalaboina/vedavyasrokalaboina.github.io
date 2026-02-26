@@ -3,37 +3,57 @@
 <head>
 <meta charset="UTF-8">
 <title>Vedavyas R | Aeronautical Engineer</title>
+
 <style>
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background: #f4f6f8;
-    color: #222;
-}
-header {
-    background: #0a3d62;
+    background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
     color: white;
-    padding: 40px;
+}
+
+/* HERO HEADER WITH AIRCRAFT IMAGE */
+header {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
+    url("https://images.unsplash.com/photo-1540962351504-03099e0a754b") center/cover;
+    padding: 80px 20px;
     text-align: center;
 }
+
+header h1 {
+    font-size: 42px;
+}
+
 section {
     padding: 40px;
     max-width: 900px;
     margin: auto;
 }
-h2 { color: #0a3d62; }
+
+h2 {
+    color: #00c6ff;
+}
+
+/* GLASS CARD STYLE */
 .card {
-    background: white;
+    background: rgba(255,255,255,0.08);
     padding: 20px;
     margin-top: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-radius: 10px;
+    backdrop-filter: blur(8px);
 }
+
+/* PROJECT IMAGES */
+.project-img {
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
 footer {
     text-align: center;
     padding: 20px;
-    background: #0a3d62;
-    color: white;
+    background: rgba(0,0,0,0.5);
 }
 </style>
 </head>
@@ -47,25 +67,36 @@ footer {
 </header>
 
 <section>
+
 <h2>About Me</h2>
 <div class="card">
 <p>An aeronautical engineering graduate from the University of South Wales with experience in computational analysis, aircraft design and engineering simulation. My work focuses on applying CFD and FEA to optimise aerodynamic performance and structural efficiency. I am currently based in the UK and seeking opportunities within the aviation and advanced engineering sectors.</p>
 </div>
 
 <h2>Projects</h2>
+
 <div class="card">
 <h3>Thrust Vector Control using Jet Vanes</h3>
 <p>Designed and analysed a thrust vector control system using simulation-driven engineering methods.</p>
+<img class="project-img" src="https://images.unsplash.com/photo-1580674285054-bed31e145f59">
+</div>
 
+<div class="card">
 <h3>SAE Aero Design Competitions</h3>
 <p>Technical Lead responsible for aerodynamic analysis, structural evaluation and CAD modelling.</p>
+<img class="project-img" src="https://images.unsplash.com/photo-1517976487492-5750f3195933">
+</div>
 
-<h3>Businedd Jet Design, Analysis and Simulation</h3>
-<p>Designed an 8 - passenger business jet by calculating Take-off weight(TOW) and obtained aircraft dimensions from it. A Solidworks CAD model was created, analysed via Solidworks simulation, and flown in the Merlin Simulator.</p>
+<div class="card">
+<h3>Business Jet Design, Analysis and Simulation</h3>
+<p>Designed an 8-passenger business jet by calculating Take-off Weight (TOW) and deriving aircraft dimensions. Created a SolidWorks CAD model, performed structural simulation and evaluated performance using Merlin Simulator.</p>
+<img class="project-img" src="https://images.unsplash.com/photo-1508615070457-7baeba4003ab">
+</div>
 
-<h3>Investigation of the Aerodynamics of a Bio - Inspired Blended Wing Body</h3>
-<p>Designed and optimised a bio-inspired Blended-Wing-Body (BWB) aircraft using SolidWorks and ANSYS Fluent. Validated the CFD framework through rigorous mesh convergence and external benchmarking. Conducted a parametric study on winglet sweep angles, identifying best configuration that maximised the Lift-to-Drag ratio, confirming superior aerodynamic efficiency.</p>
-    
+<div class="card">
+<h3>Investigation of the Aerodynamics of a Bio-Inspired Blended Wing Body</h3>
+<p>Designed and optimised a bio-inspired Blended-Wing-Body aircraft using SolidWorks and ANSYS Fluent. Conducted mesh convergence and parametric winglet analysis to maximise Lift-to-Drag ratio.</p>
+<img class="project-img" src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05">
 </div>
 
 <h2>Skills</h2>
@@ -78,6 +109,7 @@ footer {
 <p>Email: vedavyasrokalaboin1@gmail.com</p>
 <p>LinkedIn: https://www.linkedin.com/in/vedavyas-rokalaboina/</p>
 </div>
+
 </section>
 
 <footer>
