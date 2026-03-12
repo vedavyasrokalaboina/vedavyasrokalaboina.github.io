@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <title>Thrust Vector Control Using Jet Vanes</title>
@@ -16,10 +15,6 @@ padding:40px;
 text-align:center;
 }
 
-h1{
-margin-bottom:10px;
-}
-
 .description{
 max-width:900px;
 margin:auto;
@@ -27,36 +22,34 @@ margin-bottom:40px;
 line-height:1.6;
 }
 
-/* IMAGE GALLERY */
-
 .gallery{
 display:grid;
-grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:30px;
 max-width:1100px;
 margin:auto;
 }
 
-.gallery img{
+figure{
+margin:0;
+}
+
+figure img{
 width:100%;
 height:auto;
 border-radius:10px;
 box-shadow:0 4px 10px rgba(0,0,0,0.4);
-transition: transform 0.3s;
 }
 
-.gallery img:hover{
-transform:scale(1.05);
+figcaption{
+margin-top:8px;
+font-size:14px;
+color:#ddd;
 }
 
 a{
 color:#00c6ff;
 text-decoration:none;
-font-size:18px;
-}
-
-.back{
-margin-top:40px;
 }
 
 </style>
@@ -67,38 +60,53 @@ margin-top:40px;
 <h1>Thrust Vector Control Using Jet Vanes</h1>
 
 <div class="description">
-<p>
-This project focused on analysing different nozzle geometries for thrust vector control.
-Multiple nozzle configurations including circular, rectangular, hexagonal and triangular
-shapes were studied to evaluate aerodynamic behaviour and performance characteristics.
-The design investigation explored how nozzle geometry influences flow direction,
-thrust efficiency and overall aerodynamic performance.
-</p>
+Investigation of multiple nozzle geometries including circular, rectangular,
+hexagonal and triangular designs to analyse aerodynamic behaviour and thrust
+vector performance.
 </div>
-
 
 <div class="gallery">
 
-<img src="Thrust - Circular nozzle.jpg" alt="Circular Nozzle">
+<figure>
+<img src="Thrust - Circular nozzle.jpg">
+<figcaption>Thrust - Circular nozzle</figcaption>
+</figure>
 
-<img src="Thrust - Elliptical nozzle.jpg" alt="Elliptical Nozzle">
+<figure>
+<img src="Thrust - Elliptical nozzle.jpg">
+<figcaption>Thrust - Elliptical nozzle</figcaption>
+</figure>
 
-<img src="Thrust - Hexagonal nozzle.jpg" alt="Hexagonal Nozzle">
+<figure>
+<img src="Thrust - Hexagonal nozzle.jpg">
+<figcaption>Thrust - Hexagonal nozzle</figcaption>
+</figure>
 
-<img src="Thrust - Rectangular nozzle.jpg" alt="Rectangular Nozzle">
+<figure>
+<img src="Thrust - Rectangular nozzle.jpg">
+<figcaption>Thrust - Rectangular nozzle</figcaption>
+</figure>
 
-<img src="Thrust - Rectangular.jpg" alt="Rectangular Design">
+<figure>
+<img src="Thrust - Rectangular.jpg">
+<figcaption>Thrust - Rectangular</figcaption>
+</figure>
 
-<img src="Thrust - Square nozzle.jpg" alt="Square Nozzle">
+<figure>
+<img src="Thrust - Square nozzle.jpg">
+<figcaption>Thrust - Square nozzle</figcaption>
+</figure>
 
-<img src="Thrust - Triangular nozzle.jpg" alt="Triangular Nozzle">
+<figure>
+<img src="Thrust - Triangular nozzle.jpg">
+<figcaption>Thrust - Triangular nozzle</figcaption>
+</figure>
 
 </div>
 
+<br><br>
 
-<div class="back">
-<p><a href="index.html">← Back to Portfolio</a></p>
-</div>
+<a href="index.html">← Back to Portfolio</a>
 
 </body>
 </html>
