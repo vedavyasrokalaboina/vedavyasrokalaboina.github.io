@@ -1,12 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 <meta charset="UTF-8">
-<title>Thrust Vector Control Project</title>
+<title>Thrust Vector Control Using Jet Vanes</title>
+
 <style>
-body { font-family: Arial; background:#0f2027; color:white; padding:40px; }
-img { width:100%; border-radius:10px; margin-top:20px; }
-a { color:#00c6ff; text-decoration:none; }
+
+body{
+font-family: Arial, sans-serif;
+background:#0f2027;
+color:white;
+margin:0;
+padding:40px;
+text-align:center;
+}
+
+h1{
+margin-bottom:10px;
+}
+
+.description{
+max-width:900px;
+margin:auto;
+margin-bottom:40px;
+line-height:1.6;
+}
+
+/* IMAGE GALLERY */
+
+.gallery{
+display:grid;
+grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
+gap:25px;
+max-width:1100px;
+margin:auto;
+}
+
+.gallery img{
+width:100%;
+height:auto;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.4);
+transition: transform 0.3s;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+a{
+color:#00c6ff;
+text-decoration:none;
+font-size:18px;
+}
+
+.back{
+margin-top:40px;
+}
+
 </style>
 </head>
 
@@ -14,11 +66,39 @@ a { color:#00c6ff; text-decoration:none; }
 
 <h1>Thrust Vector Control Using Jet Vanes</h1>
 
-<p>Designed and analysed a thrust vector control system using simulation-driven engineering methods to evaluate aerodynamic deflection and performance behaviour.</p>
+<div class="description">
+<p>
+This project focused on analysing different nozzle geometries for thrust vector control.
+Multiple nozzle configurations including circular, rectangular, hexagonal and triangular
+shapes were studied to evaluate aerodynamic behaviour and performance characteristics.
+The design investigation explored how nozzle geometry influences flow direction,
+thrust efficiency and overall aerodynamic performance.
+</p>
+</div>
 
-<img src="Thrust - Circular nozzle.jpg" alt="Circular Nozzle" style="width:100%; border-radius:10px; margin-top:20px">
 
-<p><a href="index.html">← Back to Home</a></p>
+<div class="gallery">
+
+<img src="Thrust - Circular nozzle.jpg" alt="Circular Nozzle">
+
+<img src="Thrust - Elliptical nozzle.jpg" alt="Elliptical Nozzle">
+
+<img src="Thrust - Hexagonal nozzle.jpg" alt="Hexagonal Nozzle">
+
+<img src="Thrust - Rectangular nozzle.jpg" alt="Rectangular Nozzle">
+
+<img src="Thrust - Rectangular.jpg" alt="Rectangular Design">
+
+<img src="Thrust - Square nozzle.jpg" alt="Square Nozzle">
+
+<img src="Thrust - Triangular nozzle.jpg" alt="Triangular Nozzle">
+
+</div>
+
+
+<div class="back">
+<p><a href="index.html">← Back to Portfolio</a></p>
+</div>
 
 </body>
 </html>
