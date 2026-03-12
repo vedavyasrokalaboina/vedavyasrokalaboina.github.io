@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <title>Vedavyas Rokalaboina | Aeronautical Engineer</title>
@@ -8,9 +9,10 @@
 
 body{
 font-family: Arial, sans-serif;
-margin:0;
 background:#0f2027;
 color:white;
+margin:0;
+text-align:center;
 scroll-behavior:smooth;
 }
 
@@ -22,7 +24,6 @@ top:0;
 width:100%;
 background:#111;
 padding:15px;
-text-align:center;
 z-index:1000;
 }
 
@@ -41,22 +42,17 @@ color:#00d9ff;
 /* SECTIONS */
 
 section{
-padding:100px 40px;
-text-align:center;
+padding:90px 40px;
 }
 
-/* HOME */
-
-.home{
-margin-top:60px;
-}
+/* PROFILE */
 
 .profile-pic{
-width:180px;
-height:180px;
+width:170px;
+height:170px;
 border-radius:50%;
 border:4px solid white;
-margin-bottom:20px;
+margin-top:40px;
 }
 
 /* CARD STYLE */
@@ -64,18 +60,18 @@ margin-bottom:20px;
 .card{
 background:#1c2b36;
 padding:25px;
-margin:20px auto;
-max-width:800px;
+margin:30px auto;
+max-width:850px;
 border-radius:10px;
 }
 
-/* PROJECT GRID */
+/* PROJECT GALLERY */
 
-.projects{
+.gallery{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-max-width:1000px;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:30px;
+max-width:1100px;
 margin:auto;
 }
 
@@ -86,41 +82,65 @@ border-radius:10px;
 }
 
 .project-card a{
+display:inline-block;
+margin-top:10px;
 color:#00d9ff;
 text-decoration:none;
+font-weight:bold;
 }
 
 /* CONTACT */
 
-.contact p{
-font-size:18px;
+.contact input,
+.contact textarea{
+
+width:80%;
+padding:12px;
+margin:10px;
+border-radius:5px;
+border:none;
+
+}
+
+.contact button{
+
+padding:12px 25px;
+background:#00d9ff;
+border:none;
+border-radius:5px;
+cursor:pointer;
+font-weight:bold;
+
 }
 
 </style>
+
 </head>
 
 <body>
 
-<!-- NAVIGATION BAR -->
+<!-- NAVBAR -->
 
 <header class="navbar">
+
 <a href="#home">Home</a>
 <a href="#about">About</a>
 <a href="#projects">Projects</a>
 <a href="#skills">Skills</a>
 <a href="#contact">Contact</a>
+
 </header>
 
 
 <!-- HOME -->
 
-<section id="home" class="home">
+<section id="home">
 
-<img src="My Picture.jpg" alt="Vedavyas Rokalaboina" class="profile-pic">
+<img src="profile.jpg" class="profile-pic">
 
 <h1>Vedavyas Rokalaboina</h1>
 
-<p>Aeronautical Engineer | Aircraft Design | CFD | Aeronautical Enthusiast</p>
+<p>Aeronautical Engineer | Aircraft Design | CFD | Aerospace Simulation</p>
 
 </section>
 
@@ -134,11 +154,13 @@ font-size:18px;
 <div class="card">
 
 <p>
+
 Aeronautical engineering graduate passionate about aircraft design,
-aerodynamics, and advanced simulation techniques. Experienced in
-CFD analysis, structural analysis, and CAD modelling for aircraft
-systems. Interested in contributing to innovative aerospace
-technologies and next-generation aircraft development.
+aerodynamics, and simulation technologies. Experienced in
+CFD analysis, FEA structural evaluation, and CAD modelling.
+Interested in developing innovative aerospace systems and
+next-generation aircraft concepts.
+
 </p>
 
 </div>
@@ -152,30 +174,60 @@ technologies and next-generation aircraft development.
 
 <h2>Projects</h2>
 
-<div class="projects">
+<div class="gallery">
 
 <div class="project-card">
+
 <h3>Bio-Inspired Blended Wing Body Aircraft</h3>
-<p>Conceptual aircraft design inspired by biological aerodynamics.</p>
-<a href="#">View Project</a>
+
+<p>Conceptual aircraft inspired by biological aerodynamic efficiency.</p>
+
+<a href="project1.html">View Project</a>
+
 </div>
 
+
 <div class="project-card">
+
 <h3>Thrust Vector Control by Jet Vanes</h3>
-<p>Control system for improving aircraft maneuverability.</p>
-<a href="#">View Project</a>
+
+<p>Control mechanism to improve aircraft maneuverability.</p>
+
+<a href="project2.html">View Project</a>
+
 </div>
 
+
 <div class="project-card">
+
 <h3>CFD Analysis of Airfoil</h3>
-<p>Aerodynamic performance analysis using simulation tools.</p>
-<a href="#">View Project</a>
+
+<p>Aerodynamic simulation and lift-drag performance study.</p>
+
+<a href="project3.html">View Project</a>
+
 </div>
 
+
 <div class="project-card">
+
 <h3>Aircraft Structural Analysis</h3>
-<p>Finite element structural evaluation for aerospace components.</p>
-<a href="#">View Project</a>
+
+<p>Finite element structural analysis for aerospace components.</p>
+
+<a href="project4.html">View Project</a>
+
+</div>
+
+
+<div class="project-card">
+
+<h3>Gas Turbine Performance Study</h3>
+
+<p>Thermodynamic analysis of turbine engine performance.</p>
+
+<a href="project5.html">View Project</a>
+
 </div>
 
 </div>
@@ -192,16 +244,23 @@ technologies and next-generation aircraft development.
 <div class="card">
 
 <b>Simulation & Analysis</b><br><br>
+
 ANSYS • MATLAB • XFLR5 • CFD • FEA • Gas Turbine Analysis<br><br>
 
+
 <b>Aircraft Design & CAD</b><br><br>
-Autodesk • CATIA V5 • SolidWorks • Profscan • CAD Modelling • Aerodynamic Analysis<br><br>
+
+Autodesk • CATIA V5 • SolidWorks • Profscan • CAD Modelling<br><br>
+
 
 <b>Programming</b><br><br>
+
 Python • HTML<br><br>
 
+
 <b>Professional Skills</b><br><br>
-Time Management • Communication • Problem Solving • Team Collaboration • Technical Documentation
+
+Time Management • Communication • Technical Problem Solving • Team Collaboration
 
 </div>
 
@@ -210,14 +269,23 @@ Time Management • Communication • Problem Solving • Team Collaboration •
 
 <!-- CONTACT -->
 
-<section id="contact" class="contact">
+<section id="contact">
 
 <h2>Contact</h2>
 
-<div class="card">
+<div class="card contact">
 
-<p>Email: vedavyas@email.com</p>
-<p>GitHub: github.com/vedavyasrokalaboina</p>
+<form>
+
+<input type="text" placeholder="Your Name"><br>
+
+<input type="email" placeholder="Your Email"><br>
+
+<textarea rows="5" placeholder="Your Message"></textarea><br>
+
+<button type="submit">Send Message</button>
+
+</form>
 
 </div>
 
@@ -225,4 +293,5 @@ Time Management • Communication • Problem Solving • Team Collaboration •
 
 
 </body>
+
 </html>
