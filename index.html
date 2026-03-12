@@ -9,289 +9,215 @@
 
 body{
 font-family: Arial, sans-serif;
+margin:0;
 background:#0f2027;
 color:white;
-margin:0;
+}
+
+header{
+background:#0a3d62;
 text-align:center;
-scroll-behavior:smooth;
+padding:50px 20px;
 }
 
-/* NAVBAR */
-
-.navbar{
-position:fixed;
-top:0;
-width:100%;
-background:#111;
-padding:15px;
-z-index:1000;
+header h1{
+margin:0;
+font-size:36px;
 }
 
-.navbar a{
-color:white;
-margin:0 20px;
-text-decoration:none;
-font-weight:bold;
+header p{
 font-size:18px;
+margin-top:10px;
 }
-
-.navbar a:hover{
-color:#00d9ff;
-}
-
-/* SECTIONS */
 
 section{
-padding:90px 40px;
+max-width:1000px;
+margin:auto;
+padding:40px 20px;
 }
 
-/* PROFILE */
-
-.profile-pic{
-width:170px;
-height:170px;
-border-radius:50%;
-border:4px solid white;
-margin-top:40px;
+h2{
+text-align:center;
+margin-bottom:30px;
 }
-
-/* CARD STYLE */
 
 .card{
 background:#1c2b36;
 padding:25px;
-margin:30px auto;
-max-width:850px;
+margin-bottom:20px;
 border-radius:10px;
+box-shadow:0 4px 8px rgba(0,0,0,0.4);
 }
 
-/* PROJECT GALLERY */
+.card a{
+color:#00c6ff;
+text-decoration:none;
+font-size:18px;
+}
 
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
-gap:30px;
-max-width:1100px;
+.card a:hover{
+text-decoration:underline;
+}
+
+.skills{
+text-align:center;
+}
+
+footer{
+background:#0a3d62;
+text-align:center;
+padding:20px;
+}
+
+/* CONTACT FORM */
+
+.contact{
+background:#0a3d62;
+text-align:center;
+padding:50px 20px;
+}
+
+form{
+max-width:600px;
 margin:auto;
 }
 
-.project-card{
-background:#1c2b36;
-padding:20px;
-border-radius:10px;
-}
-
-.project-card a{
-display:inline-block;
-margin-top:10px;
-color:#00d9ff;
-text-decoration:none;
-font-weight:bold;
-}
-
-/* CONTACT */
-
-.contact input,
-.contact textarea{
-
-width:80%;
+input, textarea{
+width:100%;
 padding:12px;
-margin:10px;
-border-radius:5px;
+margin-top:10px;
 border:none;
-
+border-radius:6px;
 }
 
-.contact button{
+textarea{
+height:130px;
+}
 
-padding:12px 25px;
-background:#00d9ff;
+button{
+margin-top:15px;
+padding:12px 30px;
+background:#00c6ff;
 border:none;
-border-radius:5px;
+border-radius:6px;
+color:white;
+font-size:16px;
 cursor:pointer;
-font-weight:bold;
+}
 
+button:hover{
+background:#0099cc;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-
-<header class="navbar">
-
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#projects">Projects</a>
-<a href="#skills">Skills</a>
-<a href="#contact">Contact</a>
-
+<header>
+<h1>Vedavyas Rokalaboina</h1>
+<p>Msc Aeronautical Engineering Graduate | CFD • FEA • Aircraft Design</p>
+<p>United Kingdom</p>
 </header>
 
+<section>
 
-<!-- HOME -->
-
-<section id="home">
-
-<img src="profile.jpg" class="profile-pic">
-
-<h1>Vedavyas Rokalaboina</h1>
-
-<p>Aeronautical Engineer | Aircraft Design | CFD | Aerospace Simulation</p>
-
-</section>
-
-
-<!-- ABOUT -->
-
-<section id="about">
-
-<h2>About</h2>
+<h2>About Me</h2>
 
 <div class="card">
-
 <p>
-
-Aeronautical engineering graduate passionate about aircraft design,
-aerodynamics, and simulation technologies. Experienced in
-CFD analysis, FEA structural evaluation, and CAD modelling.
-Interested in developing innovative aerospace systems and
-next-generation aircraft concepts.
-
+MSc Aeronautical Engineering graduate from the University of South Wales with a strong foundation in aircraft design, computational fluid dynamics (CFD), structural analysis and engineering simulation. Experienced in applying analytical and computational methods to evaluate aerodynamic performance and optimise aircraft configurations. Skilled in utilising industry-standard engineering tools to support design, analysis and problem-solving within aeronautical projects. Passionate about contributing to innovative and efficient aircraft systems.
 </p>
-
 </div>
-
-</section>
-
-
-<!-- PROJECTS -->
-
-<section id="projects">
 
 <h2>Projects</h2>
 
-<div class="gallery">
-
-<div class="project-card">
-
-<h3>Bio-Inspired Blended Wing Body Aircraft</h3>
-
-<p>Conceptual aircraft inspired by biological aerodynamic efficiency.</p>
-
-<a href="project1.html">View Project</a>
-
-</div>
-
-
-<div class="project-card">
-
-<h3>Thrust Vector Control by Jet Vanes</h3>
-
-<p>Control mechanism to improve aircraft maneuverability.</p>
-
-<a href="project2.html">View Project</a>
-
-</div>
-
-
-<div class="project-card">
-
-<h3>CFD Analysis of Airfoil</h3>
-
-<p>Aerodynamic simulation and lift-drag performance study.</p>
-
-<a href="project3.html">View Project</a>
-
-</div>
-
-
-<div class="project-card">
-
-<h3>Aircraft Structural Analysis</h3>
-
-<p>Finite element structural analysis for aerospace components.</p>
-
-<a href="project4.html">View Project</a>
-
-</div>
-
-
-<div class="project-card">
-
-<h3>Gas Turbine Performance Study</h3>
-
-<p>Thermodynamic analysis of turbine engine performance.</p>
-
+<div class="card">
+<h3>RC plane modelling and Flight test</h3>
+<p>RC plane modelling and testing in the real flight test.</p>
 <a href="project5.html">View Project</a>
-
 </div>
 
+<div class="card">
+<h3>Thrust Vector Control Using Jet Vanes</h3>
+<p>Investigation of multiple nozzle geometries including circular, rectangular and triangular configurations.</p>
+<a href="project1.html">View Project</a>
 </div>
 
-</section>
+<div class="card">
+<h3>SAE Aero Design Competition</h3>
+<p>Technical Lead responsible for aerodynamic analysis, CAD modelling and aircraft design.</p>
+<a href="project2.html">View Project</a>
+</div>
 
+<div class="card">
+<h3>Business Jet Design, Analysis and Simulation</h3>
+<p>Conceptual design and aerodynamic simulation of an eight-passenger business jet aircraft.</p>
+<a href="project3.html">View Project</a>
+</div>
 
-<!-- SKILLS -->
-
-<section id="skills">
+<div class="card">
+<h3>Bio-Inspired Blended Wing Body Aircraft</h3>
+<p>CFD investigation of a bio-inspired UAV configuration to optimise aerodynamic performance.</p>
+<a href="project4.html">View Project</a>
+</div>
 
 <h2>Skills</h2>
 
-<div class="card">
+<div class="card skills">
 
-<b>Simulation & Analysis</b><br><br>
+<b>Simulation & Analysis:</b><br>
+ANSYS • MATLAB • XFLR5 • Computational Fluid Dynamics (CFD) • Finite Element Analysis (FEA) • Gas Turbine Analysis<br><br>
 
-ANSYS • MATLAB • XFLR5 • CFD • FEA • Gas Turbine Analysis<br><br>
+<b>Aircraft Design & CAD:</b><br>
+Autodesk • CATIA V5 • SolidWorks • Profscan • CAD Modelling • Aircraft Conceptual Design • Aerodynamic Analysis<br><br>
 
+<b>Programming & Web:</b><br>
+Python • HTML • Engineering Data Analysis<br><br>
 
-<b>Aircraft Design & CAD</b><br><br>
-
-Autodesk • CATIA V5 • SolidWorks • Profscan • CAD Modelling<br><br>
-
-
-<b>Programming</b><br><br>
-
-Python • HTML<br><br>
-
-
-<b>Professional Skills</b><br><br>
-
-Time Management • Communication • Technical Problem Solving • Team Collaboration
+<b>Additional Professional Skills:</b><br>
+Technical Problem Solving • Time Management • Communication Skills • Team Collaboration • Project Management • Engineering Documentation
 
 </div>
 
 </section>
 
 
-<!-- CONTACT -->
+<!-- CONTACT SECTION -->
 
-<section id="contact">
+<section class="contact">
 
-<h2>Contact</h2>
+<h2>Contact Me</h2>
 
-<div class="card contact">
+<p>If you would like to discuss opportunities or collaborations, please send a message.</p>
 
-<form>
+<form action="https://formspree.io/f/mzdjggdr" method="POST">
 
-<input type="text" placeholder="Your Name"><br>
+<input type="text" name="name" placeholder="Your Name" required>
 
-<input type="email" placeholder="Your Email"><br>
+<input type="email" name="email" placeholder="Your Email" required>
 
-<textarea rows="5" placeholder="Your Message"></textarea><br>
+<textarea name="message" placeholder="Your Message" required></textarea>
 
 <button type="submit">Send Message</button>
 
 </form>
 
-</div>
+<br>
+
+<p>Email: vedavyasrokalaboin1@gmail.com</p>
+
+<p>
+<a href="https://www.linkedin.com/in/vedavyas-rokalaboina/" style="color:#00c6ff;">
+LinkedIn
+</a>
+</p>
 
 </section>
 
+<footer>
+<p>© 2026 Vedavyas Rokalaboina</p>
+</footer>
 
 </body>
-
 </html>
