@@ -1,12 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 <meta charset="UTF-8">
-<title>Business Jet Design</title>
+<title>Business Jet Design, Analysis and Simulation</title>
+
 <style>
-body { font-family: Arial; background:#0f2027; color:white; padding:40px; }
-img { width:100%; border-radius:10px; margin-top:20px; }
-a { color:#00c6ff; }
+
+body{
+font-family: Arial, sans-serif;
+background:#0f2027;
+color:white;
+margin:0;
+padding:40px;
+text-align:center;
+}
+
+h1{
+margin-bottom:10px;
+}
+
+.description{
+max-width:900px;
+margin:auto;
+margin-bottom:40px;
+line-height:1.6;
+}
+
+/* IMAGE GALLERY */
+
+.gallery{
+display:grid;
+grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
+gap:25px;
+max-width:1100px;
+margin:auto;
+}
+
+.gallery img{
+width:100%;
+height:auto;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.4);
+transition: transform 0.3s;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+a{
+color:#00c6ff;
+text-decoration:none;
+font-size:18px;
+}
+
+.back{
+margin-top:40px;
+}
+
 </style>
 </head>
 
@@ -14,11 +66,43 @@ a { color:#00c6ff; }
 
 <h1>Business Jet Design, Analysis and Simulation</h1>
 
-<p>Designed an 8-passenger business jet by calculating Take-off Weight and deriving aircraft dimensions. Created a SolidWorks CAD model and performed simulation analysis.</p>
+<div class="description">
 
-<img src="https://images.unsplash.com/photo-1508615070457-7baeba4003ab">
+<p>
+This project involved the conceptual design and aerodynamic analysis of an 
+eight-passenger business jet aircraft. The design process began with the 
+calculation of the aircraft's Take-Off Weight (TOW), followed by determining 
+the key aircraft dimensions including wing span, fuselage length and 
+aerodynamic configuration.
+</p>
 
-<p><a href="index.html">← Back to Home</a></p>
+<p>
+A complete 3D CAD model of the aircraft was developed using SolidWorks. 
+The model was then analysed using simulation tools to evaluate aerodynamic 
+performance, pressure distribution and velocity characteristics. The aircraft 
+model was also tested within the Merlin flight simulator to validate the 
+design behaviour and flight characteristics.
+</p>
+
+</div>
+
+<div class="gallery">
+
+<img src="POV - Merlin.jpg" alt="Merlin Flight Simulator View">
+
+<img src="POV - Pressure.png" alt="Pressure Distribution Analysis">
+
+<img src="POV - Velocity.png" alt="Velocity Distribution Analysis">
+
+<img src="POV - front.png" alt="Front View of Business Jet">
+
+<img src="POV - top.png" alt="Top View of Business Jet">
+
+</div>
+
+<div class="back">
+<p><a href="index.html">← Back to Portfolio</a></p>
+</div>
 
 </body>
 </html>
