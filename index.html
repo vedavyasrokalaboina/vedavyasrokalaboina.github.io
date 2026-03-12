@@ -1,85 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <title>Vedavyas Rokalaboina | Aeronautical Engineer</title>
 
 <style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
-    color: white;
+
+body{
+font-family: Arial, sans-serif;
+margin:0;
+background:#0f2027;
+color:white;
 }
 
-header {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
-    url("https://images.unsplash.com/photo-1540962351504-03099e0a754b") center/cover;
-    padding: 80px 20px;
-    text-align: center;
+header{
+background:#0a3d62;
+text-align:center;
+padding:50px 20px;
 }
 
-section {
-    padding: 40px;
-    max-width: 900px;
-    margin: auto;
+header h1{
+margin:0;
+font-size:36px;
 }
 
-.card {
-    background: rgba(255,255,255,0.08);
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 10px;
-    transition: 0.3s;
+header p{
+font-size:18px;
+margin-top:10px;
 }
 
-.card:hover { transform: scale(1.02); }
-
-a { text-decoration: none; color: white; }
-    
-<section id="contact" style="padding:60px 20px;background:#0a3d62;color:white;text-align:center;">
-
-<h2>Contact Me</h2>
-<p>If you would like to discuss opportunities or collaborations, please send a message.</p>
-
-<form action="https://formspree.io/f/mzdjggdr" method="POST" style="max-width:600px;margin:auto;">
-
-<div style="margin-bottom:15px;">
-<input type="text" name="name" placeholder="Your Name" required
-style="width:100%;padding:12px;border-radius:6px;border:none;">
-</div>
-
-<div style="margin-bottom:15px;">
-<input type="email" name="email" placeholder="Your Email" required
-style="width:100%;padding:12px;border-radius:6px;border:none;">
-</div>
-
-<div style="margin-bottom:15px;">
-<textarea name="message" placeholder="Your Message" required
-style="width:100%;padding:12px;height:130px;border-radius:6px;border:none;"></textarea>
-</div>
-
-<button type="submit"
-style="background:#00c6ff;border:none;padding:12px 30px;color:white;font-size:16px;border-radius:6px;cursor:pointer;">
-Send Message
-</button>
-
-</form>
-
-<br>
-
-<p>Email: vedavyasrokalaboin1@gmail.com</p>
-<p>
-<a href="https://www.linkedin.com/in/vedavyas-rokalaboina/" style="color:#00c6ff;">LinkedIn</a>
-</p>
-
-</section>
-    
-footer {
-    text-align: center;
-    padding: 20px;
-    background: rgba(0,0,0,0.5);
+section{
+max-width:1000px;
+margin:auto;
+padding:40px 20px;
 }
+
+h2{
+text-align:center;
+margin-bottom:30px;
+}
+
+.card{
+background:#1c2b36;
+padding:25px;
+margin-bottom:20px;
+border-radius:10px;
+box-shadow:0 4px 8px rgba(0,0,0,0.4);
+}
+
+.card a{
+color:#00c6ff;
+text-decoration:none;
+font-size:18px;
+}
+
+.card a:hover{
+text-decoration:underline;
+}
+
+.skills{
+text-align:center;
+}
+
+footer{
+background:#0a3d62;
+text-align:center;
+padding:20px;
+}
+
+/* CONTACT FORM */
+
+.contact{
+background:#0a3d62;
+text-align:center;
+padding:50px 20px;
+}
+
+form{
+max-width:600px;
+margin:auto;
+}
+
+input, textarea{
+width:100%;
+padding:12px;
+margin-top:10px;
+border:none;
+border-radius:6px;
+}
+
+textarea{
+height:130px;
+}
+
+button{
+margin-top:15px;
+padding:12px 30px;
+background:#00c6ff;
+border:none;
+border-radius:6px;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#0099cc;
+}
+
 </style>
 </head>
 
@@ -94,50 +123,86 @@ footer {
 <section>
 
 <h2>About Me</h2>
+
 <div class="card">
-<p>An aeronautical engineering graduate from the University of South Wales specialising in CFD, FEA and aircraft design. Based in the UK and seeking opportunities in aviation and advanced engineering sectors.</p>
+<p>
+Aeronautical Engineering graduate from the University of South Wales with
+experience in aircraft design, computational fluid dynamics (CFD),
+structural analysis and engineering simulation. My work focuses on applying
+engineering analysis and design optimisation to improve aerodynamic
+performance and aircraft efficiency.
+</p>
 </div>
 
 <h2>Projects</h2>
 
-<a href="project1.html">
 <div class="card">
 <h3>Thrust Vector Control Using Jet Vanes</h3>
-<p>Click to view full project →</p>
+<p>Investigation of multiple nozzle geometries including circular, rectangular and triangular configurations.</p>
+<a href="project1.html">View Project</a>
 </div>
-</a>
 
-<a href="project2.html">
 <div class="card">
-<h3>SAE Aero Design Aircraft</h3>
-<p>Click to view full project →</p>
+<h3>SAE Aero Design Competition</h3>
+<p>Technical Lead responsible for aerodynamic analysis, CAD modelling and aircraft design.</p>
+<a href="project2.html">View Project</a>
 </div>
-</a>
 
-<a href="project3.html">
 <div class="card">
 <h3>Business Jet Design, Analysis and Simulation</h3>
-<p>Click to view full project →</p>
+<p>Conceptual design and aerodynamic simulation of an eight-passenger business jet aircraft.</p>
+<a href="project3.html">View Project</a>
 </div>
-</a>
 
-<a href="project4.html">
 <div class="card">
 <h3>Bio-Inspired Blended Wing Body Aircraft</h3>
-<p>Click to view full project →</p>
+<p>CFD investigation of a bio-inspired UAV configuration to optimise aerodynamic performance.</p>
+<a href="project4.html">View Project</a>
 </div>
-</a>
 
-<h2>Contact</h2>
-<div class="card">
-<p>Email: vedavyasrokalaboin1@gmail.com</p>
-<p>LinkedIn: https://www.linkedin.com/in/vedavyas-rokalaboina/</p>
+<h2>Skills</h2>
+
+<div class="card skills">
+ANSYS • SolidWorks • MATLAB • CFD • FEA • CAD Modelling
 </div>
 
 </section>
 
+
+<!-- CONTACT SECTION -->
+
+<section class="contact">
+
+<h2>Contact Me</h2>
+
+<p>If you would like to discuss opportunities or collaborations, please send a message.</p>
+
+<form action="https://formspree.io/f/mzdjggdr" method="POST">
+
+<input type="text" name="name" placeholder="Your Name" required>
+
+<input type="email" name="email" placeholder="Your Email" required>
+
+<textarea name="message" placeholder="Your Message" required></textarea>
+
+<button type="submit">Send Message</button>
+
+</form>
+
+<br>
+
+<p>Email: vedavyasrokalaboin1@gmail.com</p>
+
+<p>
+<a href="https://www.linkedin.com/in/vedavyas-rokalaboina/" style="color:#00c6ff;">
+LinkedIn
+</a>
+</p>
+
+</section>
+
 <footer>
-<p>Vedavyas Rokalaboina</p>
+<p>© 2026 Vedavyas Rokalaboina</p>
 </footer>
 
 </body>
