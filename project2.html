@@ -1,24 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 <meta charset="UTF-8">
-<title>SAE Aero Design</title>
+<title>SAE Aero Design Competition</title>
+
 <style>
-body { font-family: Arial; background:#0f2027; color:white; padding:40px; }
-img { width:100%; border-radius:10px; margin-top:20px; }
-a { color:#00c6ff; }
+
+body{
+font-family: Arial, sans-serif;
+background:#0f2027;
+color:white;
+margin:0;
+padding:40px;
+text-align:center;
+}
+
+h1{
+margin-bottom:10px;
+}
+
+.description{
+max-width:900px;
+margin:auto;
+margin-bottom:40px;
+line-height:1.6;
+}
+
+/* IMAGE GALLERY */
+
+.gallery{
+display:grid;
+grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
+gap:25px;
+max-width:1100px;
+margin:auto;
+}
+
+.gallery img{
+width:100%;
+height:auto;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.4);
+transition: transform 0.3s;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+a{
+color:#00c6ff;
+text-decoration:none;
+font-size:18px;
+}
+
+.back{
+margin-top:40px;
+}
+
 </style>
 </head>
 
 <body>
 
-<h1>SAE Aero Design Aircraft</h1>
+<h1>SAE Aero Design Competition</h1>
 
-<p>Served as Technical Lead in which CFD, FEA analysis and CAD were executed, resulting in securing 15th place at the SAE Aero International Competition (Florida, USA, 2023) and 3rd place at the SAE Aero National Competition (Chennai, India, 2022).</p>
+<div class="description">
 
-<img src="https://images.unsplash.com/photo-1517976487492-5750f3195933">
+<p>
+Served as Technical Lead for the aircraft design team participating in both 
+SAE International Aero Design Competition and SAE National Aero Design Competition.
+The project involved aerodynamic analysis, structural design, CAD modelling and
+performance optimisation of a radio-controlled aircraft.
+</p>
 
-<p><a href="index.html">← Back to Home</a></p>
+<p>
+The team achieved strong results including participation in the SAE Aero
+International Competition in Florida, USA and securing third place in the
+SAE Aero National Competition in Chennai, India.
+</p>
+
+</div>
+
+<div class="gallery">
+
+<img src="SAE International 1.jpg" alt="SAE International Competition Aircraft">
+
+<img src="SAE International.jpg" alt="SAE International Team">
+
+<img src="SAE National 1.jpg" alt="SAE National Aircraft">
+
+<img src="SAE National.jpg" alt="SAE National Competition">
+
+</div>
+
+<div class="back">
+<p><a href="index.html">← Back to Portfolio</a></p>
+</div>
 
 </body>
 </html>
