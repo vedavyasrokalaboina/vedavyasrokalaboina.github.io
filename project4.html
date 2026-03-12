@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <title>Bio-Inspired Blended Wing Body Aircraft</title>
@@ -16,47 +15,25 @@ padding:40px;
 text-align:center;
 }
 
-h1{
-margin-bottom:10px;
-}
-
-.description{
-max-width:900px;
-margin:auto;
-margin-bottom:40px;
-line-height:1.6;
-}
-
-/* IMAGE GALLERY */
-
 .gallery{
 display:grid;
-grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:30px;
 max-width:1100px;
 margin:auto;
 }
 
-.gallery img{
+figure img{
 width:100%;
 height:auto;
 border-radius:10px;
 box-shadow:0 4px 10px rgba(0,0,0,0.4);
-transition: transform 0.3s;
 }
 
-.gallery img:hover{
-transform:scale(1.05);
-}
-
-a{
-color:#00c6ff;
-text-decoration:none;
-font-size:18px;
-}
-
-.back{
-margin-top:40px;
+figcaption{
+margin-top:8px;
+font-size:14px;
+color:#ddd;
 }
 
 </style>
@@ -66,45 +43,38 @@ margin-top:40px;
 
 <h1>Bio-Inspired Blended Wing Body Aircraft</h1>
 
-<div class="description">
-
-<p>
-This project investigated the aerodynamic performance of a bio-inspired 
-Blended Wing Body (BWB) unmanned aerial vehicle. The aircraft geometry 
-was designed using SolidWorks and analysed through Computational Fluid 
-Dynamics simulations in ANSYS Fluent.
-</p>
-
-<p>
-The CFD model was validated through mesh convergence studies and 
-external benchmarking to ensure reliable simulation results. 
-A parametric investigation was conducted on winglet sweep angles 
-to determine the configuration that maximised the lift-to-drag ratio, 
-demonstrating improved aerodynamic efficiency compared with 
-conventional aircraft layouts.
-</p>
-
-</div>
-
 <div class="gallery">
 
-<img src="stingray.jpg" alt="Stingray Fish">
+<figure>
+<img src="UAV - front.jpg">
+<figcaption>UAV - front</figcaption>
+</figure>
 
-<img src="UAV - front.jpg" alt="BWB UAV Front View">
+<figure>
+<img src="UAV - top.jpg">
+<figcaption>UAV - top</figcaption>
+</figure>
 
-<img src="UAV - top.jpg" alt="BWB UAV Top View">
+<figure>
+<img src="UAV - mesh.png">
+<figcaption>UAV - mesh</figcaption>
+</figure>
 
-<img src="UAV - mesh.png" alt="CFD Mesh Model">
+<figure>
+<img src="UAV - pressure.png">
+<figcaption>UAV - pressure</figcaption>
+</figure>
 
-<img src="UAV - pressure.png" alt="Pressure Distribution">
-
-<img src="UAV - streamline.png" alt="Airflow Streamlines">
+<figure>
+<img src="UAV - streamline.png">
+<figcaption>UAV - streamline</figcaption>
+</figure>
 
 </div>
 
-<div class="back">
-<p><a href="index.html">← Back to Portfolio</a></p>
-</div>
+<br><br>
+
+<a href="index.html" style="color:#00c6ff;">← Back to Portfolio</a>
 
 </body>
 </html>
