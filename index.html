@@ -22,444 +22,247 @@
   --body:'IBM Plex Sans',sans-serif;
   --mono:'IBM Plex Mono',monospace;
 }
-
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{
-  margin:0;
-  font-family:var(--body);
-  background:var(--navy-deep);
-  color:var(--ink);
-  line-height:1.6;
-}
-
-/* subtle blueprint grid backdrop */
+body{ margin:0; font-family:var(--body); background:var(--navy-deep); color:var(--ink); line-height:1.7; }
 body::before{
-  content:"";
-  position:fixed;
-  inset:0;
+  content:""; position:fixed; inset:0;
   background-image:
     linear-gradient(rgba(217,169,74,0.035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(217,169,74,0.035) 1px, transparent 1px);
-  background-size:48px 48px;
-  pointer-events:none;
-  z-index:0;
+  background-size:48px 48px; pointer-events:none; z-index:0;
 }
-
 a{color:var(--brass);}
+img{max-width:100%;}
 
 /* ---------- NAV ---------- */
 nav{
-  position:fixed;
-  top:0; left:0; right:0;
-  z-index:100;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  display:flex; align-items:center; justify-content:space-between;
   padding:18px 40px;
   background:rgba(10,18,28,0.85);
   backdrop-filter:blur(10px);
   border-bottom:1px solid var(--line);
 }
-.nav-logo{
-  font-family:var(--display);
-  font-weight:600;
-  letter-spacing:0.02em;
-  font-size:18px;
-  color:var(--ink);
-}
+.nav-logo{ font-family:var(--display); font-weight:600; font-size:18px; color:var(--ink); }
 .nav-logo span{color:var(--brass);}
-.nav-links{
-  display:flex;
-  gap:32px;
-  list-style:none;
-  margin:0; padding:0;
-}
+.nav-links{ display:flex; gap:30px; list-style:none; margin:0; padding:0; }
 .nav-links a{
-  color:var(--ink-dim);
-  text-decoration:none;
-  font-family:var(--mono);
-  font-size:13px;
-  letter-spacing:0.05em;
-  text-transform:uppercase;
-  position:relative;
-  padding-bottom:4px;
-  transition:color 0.2s;
+  color:var(--ink-dim); text-decoration:none; font-family:var(--mono); font-size:12.5px;
+  letter-spacing:0.05em; text-transform:uppercase; position:relative; padding-bottom:4px; transition:color 0.2s;
 }
-.nav-links a::after{
-  content:"";
-  position:absolute;
-  bottom:0; left:0;
-  width:0; height:1px;
-  background:var(--brass);
-  transition:width 0.25s ease;
-}
+.nav-links a::after{ content:""; position:absolute; bottom:0; left:0; width:0; height:1px; background:var(--brass); transition:width 0.25s ease; }
 .nav-links a:hover, .nav-links a.active{color:var(--brass);}
 .nav-links a:hover::after, .nav-links a.active::after{width:100%;}
 .nav-toggle{display:none;background:none;border:none;color:var(--ink);font-size:26px;cursor:pointer;}
-
-@media (max-width:800px){
-  .nav-links{
-    position:fixed; top:60px; right:0;
-    flex-direction:column;
-    background:var(--navy-panel);
-    width:220px;
-    padding:20px;
-    gap:18px;
-    border-left:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-    transform:translateX(100%);
-    transition:transform 0.3s ease;
-  }
+@media (max-width:900px){
+  .nav-links{ position:fixed; top:60px; right:0; flex-direction:column; background:var(--navy-panel); width:220px; padding:20px; gap:18px; border-left:1px solid var(--line); border-bottom:1px solid var(--line); transform:translateX(100%); transition:transform 0.3s ease; }
   .nav-links.open{transform:translateX(0);}
   .nav-toggle{display:block;}
 }
 
 /* ---------- HERO ---------- */
 .hero{
-  position:relative;
-  overflow:hidden;
-  z-index:1;
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:140px 24px 80px;
+  position:relative; overflow:hidden; z-index:1;
+  min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; padding:140px 24px 100px;
 }
-.avatar-wrap{
-  position:relative;
-  width:150px; height:150px;
-  margin-bottom:28px;
-}
-.avatar{
-  width:150px; height:150px;
-  border-radius:50%;
-  object-fit:cover;
-  border:2px solid var(--brass);
-  background:var(--navy-panel-2);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-family:var(--display);
-  font-size:44px;
-  color:var(--brass);
-}
-.avatar-wrap::before, .avatar-wrap::after{
-  content:"";
-  position:absolute;
-  width:22px; height:22px;
-  border-color:var(--brass);
-  opacity:0.8;
-}
-.avatar-wrap::before{
-  top:-8px; left:-8px;
-  border-top:2px solid var(--brass);
-  border-left:2px solid var(--brass);
-}
-.avatar-wrap::after{
-  bottom:-8px; right:-8px;
-  border-bottom:2px solid var(--brass);
-  border-right:2px solid var(--brass);
-}
-.eyebrow{
-  font-family:var(--mono);
-  color:var(--brass);
-  letter-spacing:0.15em;
-  font-size:13px;
-  text-transform:uppercase;
-  margin-bottom:14px;
-}
-h1.hero-title{
-  font-family:var(--display);
-  font-size:clamp(36px,6vw,64px);
-  font-weight:700;
-  margin:0 0 14px;
-  letter-spacing:-0.01em;
-}
-.hero-sub{
-  font-family:var(--body);
-  color:var(--ink-dim);
-  font-size:18px;
-  max-width:560px;
-  margin:0 auto 34px;
-}
-.hero-ctas{display:flex; gap:16px; flex-wrap:wrap; justify-content:center;}
-.btn{
-  font-family:var(--mono);
-  font-size:13px;
-  letter-spacing:0.05em;
-  text-transform:uppercase;
-  padding:13px 26px;
-  border-radius:4px;
-  text-decoration:none;
-  transition:all 0.2s ease;
-  display:inline-block;
-}
-.btn-primary{
-  background:var(--brass);
-  color:var(--navy-deep);
-  font-weight:600;
-  border:1px solid var(--brass);
-}
-.btn-primary:hover{background:#eec36a; transform:translateY(-2px);}
-.btn-ghost{
-  background:transparent;
-  color:var(--ink);
-  border:1px solid var(--line);
-}
-.btn-ghost:hover{border-color:var(--brass); color:var(--brass);}
-
-/* ---------- SECTIONS ---------- */
-section{position:relative; z-index:1; max-width:1040px; margin:auto; padding:90px 24px;}
-.section-head{margin-bottom:44px;}
-.section-tag{
-  font-family:var(--mono);
-  color:var(--brass);
-  font-size:12px;
-  letter-spacing:0.15em;
-  text-transform:uppercase;
-  display:block;
-  margin-bottom:10px;
-}
-h2{
-  font-family:var(--display);
-  font-size:clamp(26px,4vw,36px);
-  font-weight:600;
-  margin:0;
-}
-
-.reveal{
-  opacity:0;
-  transform:translateY(24px);
-  transition:opacity 0.6s ease, transform 0.6s ease;
-}
-.reveal.in{opacity:1; transform:translateY(0);}
-
-/* about panel */
-.panel{
-  background:var(--navy-panel);
-  border:1px solid var(--line);
-  border-radius:10px;
-  padding:32px;
-}
-.about-text{color:var(--ink-dim); font-size:16px;}
-
-/* stat strip */
-.stat-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
-  gap:18px;
-  margin-top:36px;
-}
-.stat-card{
-  background:var(--navy-panel);
-  border:1px solid var(--line);
-  border-radius:8px;
-  padding:22px 18px;
-  text-align:center;
-}
-.stat-num{
-  font-family:var(--mono);
-  font-size:32px;
-  font-weight:600;
-  color:var(--brass);
-  display:block;
-}
-.stat-label{
-  font-family:var(--body);
-  font-size:12px;
-  color:var(--ink-dim);
-  text-transform:uppercase;
-  letter-spacing:0.06em;
-  margin-top:6px;
-}
-
-/* experience */
-.exp-item{
-  border-left:2px solid var(--line);
-  padding:0 0 40px 28px;
-  position:relative;
-}
-.exp-item:last-child{padding-bottom:0;}
-.exp-item::before{
-  content:"";
-  position:absolute;
-  left:-7px; top:2px;
-  width:12px; height:12px;
-  border-radius:50%;
-  background:var(--navy-deep);
-  border:2px solid var(--brass);
-}
-.exp-role{font-family:var(--display); font-size:19px; font-weight:600; margin:0 0 2px;}
-.exp-org{font-family:var(--mono); color:var(--brass); font-size:13px;}
-.exp-date{font-family:var(--mono); color:var(--ink-dim); font-size:12px; margin-bottom:12px; display:block;}
-.exp-desc{color:var(--ink-dim); font-size:15px;}
-
-/* education */
-.edu-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
-@media (max-width:700px){.edu-grid{grid-template-columns:1fr;}}
-
-/* projects */
-.project-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px;}
-.project-card{
-  background:var(--navy-panel);
-  border:1px solid var(--line);
-  border-radius:10px;
-  padding:26px;
-  position:relative;
-  overflow:hidden;
-  transition:transform 0.25s ease, border-color 0.25s ease;
-}
-.project-card:hover{transform:translateY(-4px); border-color:var(--brass-dim);}
-.project-card::before{
-  content:"";
-  position:absolute;
-  top:0; left:0; right:0;
-  height:2px;
-  background:var(--brass);
-  transform:scaleX(0);
-  transform-origin:left;
-  transition:transform 0.35s ease;
-}
-.project-card:hover::before{transform:scaleX(1);}
-.project-featured{border-color:var(--brass-dim);}
-.project-tag{
-  font-family:var(--mono);
-  font-size:11px;
-  color:var(--brass);
-  text-transform:uppercase;
-  letter-spacing:0.08em;
-}
-.project-title{font-family:var(--display); font-size:19px; font-weight:600; margin:8px 0 10px;}
-.project-desc{color:var(--ink-dim); font-size:14px; margin-bottom:16px;}
-.project-link{
-  font-family:var(--mono);
-  font-size:13px;
-  color:var(--brass);
-  text-decoration:none;
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-}
-.project-link:hover{text-decoration:underline;}
-
-/* skills */
-.skill-group{margin-bottom:26px;}
-.skill-group-title{
-  font-family:var(--mono);
-  color:var(--brass);
-  font-size:12px;
-  text-transform:uppercase;
-  letter-spacing:0.1em;
-  margin-bottom:12px;
-}
-.skill-tags{display:flex; flex-wrap:wrap; gap:10px;}
-.skill-tag{
-  font-family:var(--mono);
-  font-size:13px;
-  padding:8px 14px;
-  border:1px solid var(--line);
-  border-radius:20px;
-  color:var(--ink-dim);
-  transition:all 0.2s ease;
-}
-.skill-tag:hover{border-color:var(--brass); color:var(--brass); background:rgba(217,169,74,0.06);}
-
-/* contact */
-.contact-panel{background:var(--navy-panel); border:1px solid var(--line); border-radius:10px; padding:40px;}
-form{max-width:560px; margin:0 auto;}
-input, textarea{
-  width:100%;
-  padding:13px 14px;
-  margin-top:10px;
-  border:1px solid var(--line);
-  border-radius:6px;
-  background:var(--navy-deep);
-  color:var(--ink);
-  font-family:var(--body);
-  font-size:14px;
-}
-input::placeholder, textarea::placeholder{color:var(--ink-dim);}
-input:focus, textarea:focus{outline:none; border-color:var(--brass);}
-textarea{height:120px; resize:vertical;}
-.contact-panel button{
-  margin-top:16px;
-  width:100%;
-}
-.contact-links{display:flex; gap:20px; justify-content:center; margin-top:24px; flex-wrap:wrap;}
-.contact-links a{font-family:var(--mono); font-size:13px; text-decoration:none; color:var(--ink-dim);}
-.contact-links a:hover{color:var(--brass);}
-
-footer{
-  position:relative; z-index:1;
-  text-align:center;
-  padding:30px 24px;
-  border-top:1px solid var(--line);
-  font-family:var(--mono);
-  color:var(--ink-dim);
-  font-size:12px;
-}
-/* ---------- HERO FLOATING / ORBIT ELEMENTS ---------- */
-.hero-bg-float{
-  position:absolute;
-  z-index:0;
-  pointer-events:none;
-  opacity:0.09;
-  color:var(--brass);
-}
+.hero-bg-float{ position:absolute; z-index:0; pointer-events:none; opacity:0.09; color:var(--brass); }
 .float-plane-1{ top:14%; left:6%; width:120px; animation:floatY 9s ease-in-out infinite; }
 .float-plane-2{ bottom:12%; right:8%; width:150px; animation:floatY 11s ease-in-out infinite reverse; }
-.float-grid{ top:50%; left:50%; width:900px; transform:translate(-50%,-50%) rotate(0deg); opacity:0.045; animation:driftRotate 90s linear infinite; }
-.float-wing{ top:60%; left:4%; width:90px; opacity:0.07; animation:floatY 13s ease-in-out infinite 1s; }
+.float-grid{ top:50%; left:50%; width:900px; transform:translate(-50%,-50%); opacity:0.045; animation:driftRotate 90s linear infinite; }
+.float-wing{ top:62%; left:4%; width:90px; opacity:0.07; animation:floatY 13s ease-in-out infinite 1s; }
+@keyframes floatY{ 0%,100%{transform:translateY(0) rotate(0deg);} 50%{transform:translateY(-18px) rotate(3deg);} }
+@keyframes driftRotate{ from{transform:translate(-50%,-50%) rotate(0deg);} to{transform:translate(-50%,-50%) rotate(360deg);} }
 
-@keyframes floatY{
-  0%,100%{ transform:translateY(0px) rotate(0deg); }
-  50%{ transform:translateY(-18px) rotate(3deg); }
-}
-@keyframes driftRotate{
-  from{ transform:translate(-50%,-50%) rotate(0deg); }
-  to{ transform:translate(-50%,-50%) rotate(360deg); }
-}
+/* flight path animation across the hero */
+.flightpath-svg{ position:absolute; inset:0; width:100%; height:100%; z-index:0; pointer-events:none; }
+.flightpath-line{ fill:none; stroke:var(--brass); stroke-width:1; stroke-dasharray:6 8; opacity:0.18; }
+.flightpath-plane{ transform-box:fill-box; transform-origin:center; }
+.flightpath-plane path{ fill:var(--brass); opacity:0.65; }
+.contrail-dot{ fill:var(--brass); }
 
-.avatar-orbit{
-  position:absolute;
-  inset:0;
-  animation:spinOrbit 40s linear infinite;
-}
-@keyframes spinOrbit{
-  from{ transform:rotate(0deg); }
-  to{ transform:rotate(360deg); }
-}
-.orbit-icon{
-  position:absolute;
-  width:34px; height:34px;
-  background:var(--navy-panel);
-  border:1px solid var(--brass-dim);
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  animation:spinOrbitReverse 40s linear infinite;
-}
-@keyframes spinOrbitReverse{
-  from{ transform:rotate(0deg); }
-  to{ transform:rotate(-360deg); }
-}
+.avatar-wrap{ position:relative; width:150px; height:150px; margin-bottom:28px; z-index:2; }
+.avatar{ width:150px; height:150px; border-radius:50%; object-fit:cover; border:2px solid var(--brass); display:block; }
+.avatar-wrap::before, .avatar-wrap::after{ content:""; position:absolute; width:22px; height:22px; opacity:0.8; }
+.avatar-wrap::before{ top:-8px; left:-8px; border-top:2px solid var(--brass); border-left:2px solid var(--brass); }
+.avatar-wrap::after{ bottom:-8px; right:-8px; border-bottom:2px solid var(--brass); border-right:2px solid var(--brass); }
+.avatar-orbit{ position:absolute; inset:0; animation:spinOrbit 40s linear infinite; }
+@keyframes spinOrbit{ from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+.orbit-icon{ position:absolute; width:34px; height:34px; background:var(--navy-panel); border:1px solid var(--brass-dim); border-radius:50%; display:flex; align-items:center; justify-content:center; animation:spinOrbitReverse 40s linear infinite; }
+@keyframes spinOrbitReverse{ from{transform:rotate(0deg);} to{transform:rotate(-360deg);} }
 .orbit-icon svg{ width:18px; height:18px; stroke:var(--brass); fill:none; }
 .orbit-icon-1{ top:-17px; left:50%; margin-left:-17px; }
 .orbit-icon-2{ top:50%; right:-17px; margin-top:-17px; }
 .orbit-icon-3{ bottom:-17px; left:50%; margin-left:-17px; }
 .orbit-icon-4{ top:50%; left:-17px; margin-top:-17px; }
 
-@media (max-width:700px){
-  .float-grid{width:600px;}
-  .float-plane-1, .float-plane-2, .float-wing{width:70px;}
+.eyebrow{ position:relative; z-index:2; font-family:var(--mono); color:var(--brass); letter-spacing:0.15em; font-size:13px; text-transform:uppercase; margin-bottom:14px; }
+h1.hero-title{ position:relative; z-index:2; font-family:var(--display); font-size:clamp(36px,6vw,64px); font-weight:700; margin:0 0 14px; }
+.hero-sub{ position:relative; z-index:2; color:var(--ink-dim); font-size:18px; max-width:560px; margin:0 auto 30px; }
+.hero-socials{ position:relative; z-index:2; display:flex; gap:18px; justify-content:center; margin-bottom:34px; }
+.hero-socials a{ width:38px; height:38px; border:1px solid var(--line); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--ink-dim); transition:all 0.2s ease; }
+.hero-socials a:hover{ border-color:var(--brass); color:var(--brass); }
+.hero-socials svg{ width:17px; height:17px; }
+.hero-ctas{ position:relative; z-index:2; display:flex; gap:16px; flex-wrap:wrap; justify-content:center; }
+.btn{ font-family:var(--mono); font-size:13px; letter-spacing:0.05em; text-transform:uppercase; padding:13px 26px; border-radius:4px; text-decoration:none; transition:all 0.2s ease; display:inline-block; }
+.btn-primary{ background:var(--brass); color:var(--navy-deep); font-weight:600; border:1px solid var(--brass); }
+.btn-primary:hover{background:#eec36a; transform:translateY(-2px);}
+.btn-ghost{ background:transparent; color:var(--ink); border:1px solid var(--line); }
+.btn-ghost:hover{border-color:var(--brass); color:var(--brass);}
+.scroll-cue{ position:absolute; bottom:28px; left:50%; transform:translateX(-50%); z-index:2; font-family:var(--mono); font-size:11px; color:var(--ink-dim); text-transform:uppercase; letter-spacing:0.1em; display:flex; flex-direction:column; align-items:center; gap:8px; animation:bob 2s ease-in-out infinite; }
+@keyframes bob{ 0%,100%{transform:translate(-50%,0);} 50%{transform:translate(-50%,6px);} }
+.scroll-cue span.line{ width:1px; height:26px; background:var(--line); }
+
+/* ---------- SECTIONS ---------- */
+section{position:relative; z-index:1; max-width:1080px; margin:auto; padding:90px 24px;}
+.section-head{margin-bottom:44px;}
+.section-tag{ font-family:var(--mono); color:var(--brass); font-size:12px; letter-spacing:0.15em; text-transform:uppercase; display:block; margin-bottom:10px; }
+h2{ font-family:var(--display); font-size:clamp(26px,4vw,36px); font-weight:600; margin:0; }
+.reveal{opacity:0; transform:translateY(24px); transition:opacity 0.6s ease, transform 0.6s ease;}
+.reveal.in{opacity:1; transform:translateY(0);}
+.panel{ background:var(--navy-panel); border:1px solid var(--line); border-radius:10px; padding:32px; }
+
+/* about — side by side */
+.about-grid{ display:grid; grid-template-columns:220px 1fr; gap:40px; align-items:center; }
+@media (max-width:700px){ .about-grid{grid-template-columns:1fr; text-align:center;} }
+.about-photo{ width:100%; aspect-ratio:1; border-radius:16px; object-fit:cover; border:1px solid var(--line); }
+.about-text p{color:var(--ink-dim); font-size:16px; margin:0 0 16px;}
+.about-text p:last-child{margin-bottom:0;}
+
+/* education & experience — two column timeline */
+.two-col{ display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+@media (max-width:800px){ .two-col{grid-template-columns:1fr;} }
+.col-title{ font-family:var(--mono); color:var(--brass); font-size:13px; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:20px; }
+.tl-item{ border-left:2px solid var(--line); padding:0 0 28px 22px; position:relative; }
+.tl-item:last-child{padding-bottom:0;}
+.tl-item::before{ content:""; position:absolute; left:-6px; top:2px; width:10px; height:10px; border-radius:50%; background:var(--navy-deep); border:2px solid var(--brass); }
+.tl-date{ font-family:var(--mono); font-size:11.5px; color:var(--brass); }
+.tl-role{ font-family:var(--display); font-size:16px; font-weight:600; margin:4px 0 2px; color:var(--ink); }
+.tl-org{ font-family:var(--body); font-size:13px; color:var(--ink-dim); margin-bottom:8px; }
+.tl-desc{ color:var(--ink-dim); font-size:14px; margin:0; }
+
+/* projects grid */
+.project-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+.project-card{
+  background:var(--navy-panel); border:1px solid var(--line); border-radius:10px; padding:26px;
+  position:relative; overflow:hidden; transition:transform 0.25s ease, border-color 0.25s ease;
+  text-decoration:none; display:block;
 }
+.project-card:hover{transform:translateY(-4px); border-color:var(--brass-dim);}
+.project-card::before{ content:""; position:absolute; top:0; left:0; right:0; height:2px; background:var(--brass); transform:scaleX(0); transform-origin:left; transition:transform 0.35s ease; }
+.project-card:hover::before{transform:scaleX(1);}
+.project-featured{border-color:var(--brass-dim);}
+.project-tag{ font-family:var(--mono); font-size:11px; color:var(--brass); text-transform:uppercase; letter-spacing:0.08em; }
+.project-title{ font-family:var(--display); font-size:18px; font-weight:600; margin:8px 0 10px; color:var(--ink); }
+.project-desc{ color:var(--ink-dim); font-size:13.5px; margin-bottom:14px; }
+.project-cta{ font-family:var(--mono); font-size:12.5px; color:var(--brass); display:inline-flex; align-items:center; gap:6px; }
+
+/* skills */
+.skill-group{margin-bottom:26px;}
+.skill-group-title{ font-family:var(--mono); color:var(--brass); font-size:12px; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:12px; }
+.skill-tags{display:flex; flex-wrap:wrap; gap:10px;}
+.skill-tag{ font-family:var(--mono); font-size:13px; padding:8px 14px; border:1px solid var(--line); border-radius:20px; color:var(--ink-dim); transition:all 0.2s ease; }
+.skill-tag:hover{border-color:var(--brass); color:var(--brass); background:rgba(217,169,74,0.06);}
+
+/* contact */
+.contact-panel{background:var(--navy-panel); border:1px solid var(--line); border-radius:10px; padding:40px;}
+form{max-width:560px; margin:0 auto;}
+input, textarea{
+  width:100%; padding:13px 14px; margin-top:10px; border:1px solid var(--line); border-radius:6px;
+  background:var(--navy-deep); color:var(--ink); font-family:var(--body); font-size:14px;
+}
+input::placeholder, textarea::placeholder{color:var(--ink-dim);}
+input:focus, textarea:focus{outline:none; border-color:var(--brass);}
+textarea{height:120px; resize:vertical;}
+.contact-panel button{margin-top:16px; width:100%;}
+.contact-links{display:flex; gap:20px; justify-content:center; margin-top:24px; flex-wrap:wrap;}
+.contact-links a{font-family:var(--mono); font-size:13px; text-decoration:none; color:var(--ink-dim);}
+.contact-links a:hover{color:var(--brass);}
+
+footer{ position:relative; z-index:1; text-align:center; padding:30px 24px; border-top:1px solid var(--line); font-family:var(--mono); color:var(--ink-dim); font-size:12px; }/* ---------- FLIGHT STATUS SIDEBAR ---------- */
+.flight-sidebar{
+  position:fixed;
+  right:0; top:0; bottom:0;
+  width:64px;
+  z-index:90;
+  background:rgba(16,27,41,0.7);
+  backdrop-filter:blur(6px);
+  border-left:1px solid var(--line);
+  display:flex; flex-direction:column; align-items:center;
+  padding:90px 0 40px;
+}
+@media (max-width:900px){ .flight-sidebar{display:none;} }
+
+.fs-label-top, .fs-label-bottom{
+  font-family:var(--mono); font-size:9.5px; color:var(--ink-dim);
+  letter-spacing:0.05em; text-align:center; line-height:1.4;
+}
+.fs-label-top{margin-bottom:6px;}
+.fs-label-bottom{margin-top:6px;}
+
+.fs-track-wrap{ position:relative; flex:1; width:100%; display:flex; justify-content:center; }
+.fs-track{ position:relative; width:1px; height:100%; background:repeating-linear-gradient(to bottom, var(--line) 0 6px, transparent 6px 12px); }
+.fs-tick{ position:absolute; left:50%; width:10px; height:1px; background:var(--line); transform:translateX(-50%); }
+
+.fs-plane{
+  position:absolute;
+  left:50%;
+  top:0;
+  width:30px; height:11px;
+  transform:translate(-50%,-50%) rotate(0deg);
+  transition:top 0.12s linear, transform 0.35s ease;
+  filter:drop-shadow(0 0 4px rgba(217,169,74,0.35));
+}
+.fs-plane svg{ width:100%; height:100%; }
+.fs-plane path{ fill:var(--brass); }
+
+.fs-status{
+  position:absolute;
+  left:50%;
+  top:0;
+  transform:translate(-50%, -140%);
+  font-family:var(--mono);
+  font-size:8.5px;
+  letter-spacing:0.08em;
+  color:var(--brass);
+  white-space:nowrap;
+  transition:top 0.12s linear;
+  text-align:center;
+}
+.fs-alt{
+  position:absolute;
+  left:50%;
+  top:0;
+  transform:translate(-50%, 60%);
+  font-family:var(--mono);
+  font-size:8px;
+  color:var(--ink-dim);
+  white-space:nowrap;
+  transition:top 0.12s linear;
+}@media (min-width:900px){ body{padding-right:64px;} }
 </style>
 </head>
 <body>
+
+<div class="flight-sidebar" id="flightSidebar">
+  <div class="fs-label-top">CRUISE<br>ALT</div>
+  <div class="fs-track-wrap">
+    <div class="fs-track"></div>
+    <div class="fs-alt" id="fsAlt">0%</div>
+    <div class="fs-status" id="fsStatus">TAKE-OFF</div>
+    <div class="fs-plane" id="fsPlane">
+      <svg viewBox="0 0 120 40">
+        <path d="M 10 19 Q 10 16 16 16 L 92 16 Q 100 16 112 19.5 Q 100 23 92 23 L 16 23 Q 10 23 10 20 Z" />
+        <path d="M 45 21 L 30 34 L 40 34 L 58 22 Z" />
+        <path d="M 80 20 L 72 30 L 79 30 L 87 21 Z" />
+        <path d="M 86 16.5 L 92 5 L 97 5 L 94 16.5 Z" />
+      </svg>
+    </div>
+  </div>
+  <div class="fs-label-bottom">RWY</div>
+</div>
+
 
 <nav>
   <div class="nav-logo">VR<span>.</span></div>
@@ -476,199 +279,178 @@ footer{
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
 
+  <svg class="flightpath-svg" viewBox="0 0 1000 700" preserveAspectRatio="none">
+    <path id="flightPathA" class="flightpath-line" d="M -80 480 C 150 380, 380 200, 620 190 S 980 260, 1100 120" />
+    <g id="contrailA"></g>
+    <g class="flightpath-plane" id="planeA">
+      <svg viewBox="0 0 120 40" width="34" height="12">
+        <path d="M 10 19 Q 10 16 16 16 L 92 16 Q 100 16 112 19.5 Q 100 23 92 23 L 16 23 Q 10 23 10 20 Z" />
+        <path d="M 45 21 L 30 34 L 40 34 L 58 22 Z" />
+        <path d="M 80 20 L 72 30 L 79 30 L 87 21 Z" />
+        <path d="M 86 16.5 L 92 5 L 97 5 L 94 16.5 Z" />
+      </svg>
+    </g>
+  </svg>
+
   <svg class="hero-bg-float float-plane-1" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2">
     <path d="M10 50 L90 50 M50 20 L50 80 M50 50 L30 65 M50 50 L70 65 M45 20 L55 20" />
     <circle cx="50" cy="50" r="3" fill="currentColor" stroke="none"/>
-  </svg>
-  <svg class="hero-bg-float float-plane-2" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.2">
-    <path d="M15 60 L85 40 M50 30 L50 70 M40 55 L20 45 M60 45 L80 35" />
   </svg>
   <svg class="hero-bg-float float-wing" viewBox="0 0 100 60" fill="none" stroke="currentColor" stroke-width="1.2">
     <path d="M5 40 Q50 5 95 40 Q50 55 5 40 Z" />
     <path d="M20 40 L20 30 M50 40 L50 22 M80 40 L80 30" />
   </svg>
   <svg class="hero-bg-float float-grid" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="0.6">
-    <circle cx="100" cy="100" r="90" />
-    <circle cx="100" cy="100" r="60" />
-    <circle cx="100" cy="100" r="30" />
-    <line x1="0" y1="100" x2="200" y2="100" />
-    <line x1="100" y1="0" x2="100" y2="200" />
+    <circle cx="100" cy="100" r="90" /><circle cx="100" cy="100" r="60" /><circle cx="100" cy="100" r="30" />
+    <line x1="0" y1="100" x2="200" y2="100" /><line x1="100" y1="0" x2="100" y2="200" />
   </svg>
 
   <div class="avatar-wrap">
     <div class="avatar-orbit">
-      <div class="orbit-icon orbit-icon-1" title="Aircraft">
-        <svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M2 16l4-1 5-5 8-6-2 8-6 5-1 4-2-3-3 1z"/></svg>
-      </div>
-      <div class="orbit-icon orbit-icon-2" title="Drone">
-        <svg viewBox="0 0 24 24" stroke-width="1.6"><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M7 7l3 3M17 7l-3 3M7 17l3-3M17 17l-3-3"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
-      </div>
-      <div class="orbit-icon orbit-icon-3" title="Engineering">
-        <svg viewBox="0 0 24 24" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
-      </div>
-      <div class="orbit-icon orbit-icon-4" title="Navigation">
-        <svg viewBox="0 0 24 24" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7l2.5 5L12 17l-2.5-5z"/></svg>
-      </div>
+      <div class="orbit-icon orbit-icon-1" title="Aircraft"><svg viewBox="0 0 120 40" width="18" height="8" fill="var(--brass)"><path d="M 10 19 Q 10 16 16 16 L 92 16 Q 100 16 112 19.5 Q 100 23 92 23 L 16 23 Q 10 23 10 20 Z" /><path d="M 45 21 L 30 34 L 40 34 L 58 22 Z" /><path d="M 80 20 L 72 30 L 79 30 L 87 21 Z" /><path d="M 86 16.5 L 92 5 L 97 5 L 94 16.5 Z" /></svg></div>
+      <div class="orbit-icon orbit-icon-2" title="Drone"><svg viewBox="0 0 24 24" stroke-width="1.6"><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M7 7l3 3M17 7l-3 3M7 17l3-3M17 17l-3-3"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg></div>
+      <div class="orbit-icon orbit-icon-3" title="Engineering"><svg viewBox="0 0 24 24" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></div>
+      <div class="orbit-icon orbit-icon-4" title="Navigation"><svg viewBox="0 0 24 24" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7l2.5 5L12 17l-2.5-5z"/></svg></div>
     </div>
-    <img src="profile.jpeg" class="avatar" alt="Vedavyas Rokalaboina">
+    <img src="profile.jpg" class="avatar" alt="Vedavyas Rokalaboina">
   </div>
+
   <span class="eyebrow">MSc Aeronautical Engineer</span>
   <h1 class="hero-title">Vedavyas Rokalaboina</h1>
   <p class="hero-sub">CAD design, CFD/FEA simulation, and validated engineering &mdash; from first-principles calculation to tested, real-world results.</p>
+
+  <div class="hero-socials">
+    <a href="https://github.com/Vedavyaslucky" target="_blank" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.46-1.19-1.11-1.51-1.11-1.51-.91-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.28 2.75 1.05a9.24 9.24 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg></a>
+    <a href="https://www.linkedin.com/in/vedavyas-rokalaboina/" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a2 2 0 1 1-4-.002 2 2 0 0 1 4 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-3.96 4.77 0V21H22v-7.93c0-6.17-6.98-5.94-8.68-2.91V8.48z"/></svg></a>
+    <a href="mailto:vedavyasrokalaboina1@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18v12H3z"/><path d="M3 6l9 7 9-7"/></svg></a>
+  </div>
+
   <div class="hero-ctas">
     <a href="Vedavyas_Resume.pdf" download class="btn btn-primary">Download CV</a>
     <a href="#projects" class="btn btn-ghost">View Projects</a>
   </div>
+
+  <div class="scroll-cue"><span>Scroll</span><span class="line"></span></div>
 </section>
 
 <!-- ============ ABOUT ============ -->
 <section id="about">
-  <div class="section-head reveal">
-    <span class="section-tag">01 / About</span>
-    <h2>Engineering, validated</h2>
-  </div>
-  <div class="panel reveal">
-    <p class="about-text">MSc Aeronautical Engineering graduate from the University of South Wales with hands-on experience across mechanical design, CAD modelling, CFD/FEA simulation, and technical documentation. Comfortable taking a design from first-principles calculation through detailed CAD, simulation, and validation against real or published data. Experienced with SolidWorks, CATIA V5, and ANSYS Fluent/CFX, with a strong focus on GD&amp;T, tolerance stack-up analysis, and rigorous mesh-convergence-validated simulation. Also an independent software builder, having designed and deployed a Python aircraft sizing tool from scratch.</p>
+  <div class="section-head reveal"><span class="section-tag">01 / About</span><h2>About Me</h2></div>
+  <div class="about-grid reveal">
+    <img src="profile.jpg" class="about-photo" alt="Vedavyas Rokalaboina">
+    <div class="about-text">
+      <p>MSc Aeronautical Engineering graduate from the University of South Wales with hands-on experience across mechanical design, CAD modelling, CFD/FEA simulation, and technical documentation. Comfortable taking a design from first-principles calculation through detailed CAD, simulation, and validation against real or published data.</p>
+      <p>Experienced with SolidWorks, CATIA V5, and ANSYS Fluent/CFX, with a strong focus on GD&amp;T, tolerance stack-up analysis, and rigorous mesh-convergence-validated simulation. Also an independent software builder, having designed and deployed a Python aircraft sizing tool from scratch.</p>
+    </div>
   </div>
 </section>
 
 <!-- ============ EXPERIENCE ============ -->
 <section id="experience">
-  <div class="section-head reveal">
-    <span class="section-tag">02 / Experience</span>
-    <h2>Work Experience</h2>
-  </div>
-
-  <div class="exp-item reveal">
-    <h3 class="exp-role">Mechanical Design Engineer <span style="color:var(--ink-dim); font-weight:400;">(Part-time, Remote)</span></h3>
-    <span class="exp-org">Abhuday Bharat Projects Pvt Ltd</span>
-    <span class="exp-date">March 2024 &ndash; September 2025</span>
-    <p class="exp-desc">Working remotely and part-time alongside full-time MSc study, supporting mechanical design and configuration of hardware components in SolidWorks and CATIA V5, converting specifications into manufacturing-ready 3D models and producing 2D technical drawings with full GD&amp;T annotation. Running interference checks and tolerance stack-up validation before releasing drawings for machining, and liaising directly with an electrical and controls engineering team on packaging and space envelopes for integrated hardware. Supporting CFD and structural FEA analysis in ANSYS Fluent, and contributing engineering calculations toward a design correction that improved one component's strength-to-weight margin by approximately 15%.</p>
-  </div>
-
-  <div class="exp-item reveal">
-    <h3 class="exp-role">Design Team Member</h3>
-    <span class="exp-org">ARDC, IARE</span>
-    <span class="exp-date">April 2022 &ndash; February 2024</span>
-    <p class="exp-desc">Part of a small, multi-disciplinary student engineering team that took a 200-inch wing structure assembly from concept through to a physical, tested aircraft. Contributed design calculations and parametric models in XFLR5 and SolidWorks, alongside hands-on fabrication (laser cutting, precision drilling, manual workshop tooling) and lab testing, iterating the physical build directly off test results. Helped compile the technical evidence for, and contributed to, the project's design review, presented before appraisal panels at the SAE International competition (USA), achieving a top-15 global ranking out of the full international field.</p>
-  </div>
-</section>
-
-<!-- ============ EDUCATION ============ -->
-<section id="education">
-  <div class="section-head reveal">
-    <span class="section-tag">03 / Education</span>
-    <h2>Education</h2>
-  </div>
-  <div class="edu-grid">
-    <div class="panel reveal">
-      <h3 class="exp-role" style="font-size:17px;">MSc Aeronautical Engineering</h3>
-      <span class="exp-org">University of South Wales, UK</span>
-      <span class="exp-date">September 2024 &ndash; September 2025</span>
-      <p class="exp-desc">Core modules in Flight Vehicle Systems Design, Computational Structural Analysis, Advanced Fluid Dynamics Modelling, and Computational Simulation Techniques.</p>
+  <div class="section-head reveal"><span class="section-tag">02 / Background</span><h2>Education &amp; Experience</h2></div>
+  <div class="two-col">
+    <div class="reveal">
+      <div class="col-title">Education</div>
+      <div class="tl-item">
+        <span class="tl-date">Sep 2024 &ndash; Sep 2025</span>
+        <h3 class="tl-role">MSc Aeronautical Engineering</h3>
+        <p class="tl-org">University of South Wales, UK</p>
+        <p class="tl-desc">Flight Vehicle Systems Design, Computational Structural Analysis, Advanced Fluid Dynamics Modelling, Computational Simulation Techniques.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-date">Dec 2020 &ndash; Apr 2024</span>
+        <h3 class="tl-role">BTech Aeronautical Engineering</h3>
+        <p class="tl-org">Institute of Aeronautical Engineering, India</p>
+        <p class="tl-desc">Engineering Materials Technology, Structural Dynamics, Mechanical Vibration Analysis, Aerodynamics, Advanced CAD Modelling.</p>
+      </div>
     </div>
-    <div class="panel reveal">
-      <h3 class="exp-role" style="font-size:17px;">BTech Aeronautical Engineering</h3>
-      <span class="exp-org">Institute of Aeronautical Engineering, India</span>
-      <span class="exp-date">December 2020 &ndash; April 2024</span>
-      <p class="exp-desc">Core modules in Engineering Materials Technology, Structural Dynamics, Mechanical Vibration Analysis, Aerodynamics, and Advanced CAD Modelling.</p>
+    <div class="reveal">
+      <div class="col-title">Work Experience</div>
+      <div class="tl-item">
+        <span class="tl-date">Mar 2024 &ndash; Sep 2025</span>
+        <h3 class="tl-role">Mechanical Design Engineer <span style="font-weight:400; color:var(--ink-dim); font-size:13px;">(Part-time, Remote)</span></h3>
+        <p class="tl-org">Abhuday Bharat Projects Pvt Ltd</p>
+        <p class="tl-desc">Mechanical design, CAD, GD&amp;T, tolerance stack-up validation, CFD/FEA support, and cross-disciplinary liaison with electrical/controls engineers, alongside full-time MSc study.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-date">Apr 2022 &ndash; Feb 2024</span>
+        <h3 class="tl-role">Design Team Member</h3>
+        <p class="tl-org">ARDC, IARE</p>
+        <p class="tl-desc">Design calculations, hands-on fabrication, and lab testing of a 200-inch wing structure assembly, presented at SAE International to a top-15 global ranking.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ============ PROJECTS ============ -->
 <section id="projects">
-  <div class="section-head reveal">
-    <span class="section-tag">04 / Projects</span>
-    <h2>Projects</h2>
-  </div>
+  <div class="section-head reveal"><span class="section-tag">03 / Projects</span><h2>My Projects</h2></div>
   <div class="project-grid">
-
-    <div class="project-card project-featured reveal">
+    <a href="https://aircraftsizing.streamlit.app/" target="_blank" class="project-card project-featured reveal">
       <span class="project-tag">Personal Project &middot; Live</span>
       <h3 class="project-title">Aircraft Conceptual Sizing Studio</h3>
-      <p class="project-desc">Independent Python/Streamlit application performing conceptual aircraft sizing across 8 aircraft categories, validated against 12 real reference aircraft to within 14% worst-case deviation.</p>
-      <a href="https://aircraftsizing.streamlit.app/" target="_blank" class="project-link">Open live app &rarr;</a>
-    </div>
-
-    <div class="project-card reveal">
+      <p class="project-desc">Python/Streamlit app performing conceptual aircraft sizing across 8 categories, validated against 12 real aircraft to within 14% deviation.</p>
+      <span class="project-cta">Open live app &rarr;</span>
+    </a>
+    <a href="project4.html" class="project-card reveal">
       <span class="project-tag">MSc Dissertation</span>
       <h3 class="project-title">Bio-Inspired Blended Wing Body Aircraft</h3>
-      <p class="project-desc">CFD investigation of a blended wing body aircraft, validated through mesh convergence (1.9M elements) and benchmark comparison to under 1% deviation.</p>
-      <a href="project4.html" class="project-link">View project &rarr;</a>
-    </div>
-
-    <div class="project-card reveal">
+      <p class="project-desc">CFD investigation validated through mesh convergence (1.9M elements) and benchmark comparison to under 1% deviation.</p>
+      <span class="project-cta">View project &rarr;</span>
+    </a>
+    <a href="project3.html" class="project-card reveal">
       <span class="project-tag">Group Project</span>
       <h3 class="project-title">Business Jet Design, Analysis &amp; Simulation</h3>
-      <p class="project-desc">Conceptual design and aerodynamic simulation of an eight-passenger business jet, sized from first-principles calculation through to a full SolidWorks assembly.</p>
-      <a href="project3.html" class="project-link">View project &rarr;</a>
-    </div>
-
-    <div class="project-card reveal">
+      <p class="project-desc">Eight-passenger business jet sized from first-principles calculation through to a full SolidWorks assembly.</p>
+      <span class="project-cta">View project &rarr;</span>
+    </a>
+    <a href="project1.html" class="project-card reveal">
       <span class="project-tag">Final-Year Project</span>
       <h3 class="project-title">Thrust Vector Control Using Jet Vanes</h3>
-      <p class="project-desc">Sized and modelled six converging-diverging nozzle exit geometries with matched CFD simulations for a Mach 1.8 comparative study.</p>
-      <a href="project1.html" class="project-link">View project &rarr;</a>
-    </div>
-
-    <div class="project-card reveal">
+      <p class="project-desc">Six converging-diverging nozzle geometries with matched CFD simulations for a Mach 1.8 comparative study.</p>
+      <span class="project-cta">View project &rarr;</span>
+    </a>
+    <a href="project2.html" class="project-card reveal">
       <span class="project-tag">Competition</span>
       <h3 class="project-title">SAE Aero Design Competition</h3>
-      <p class="project-desc">Contributed to aerodynamic analysis, CAD modelling, and aircraft design as part of the ARDC team; presented at SAE International, achieving a top-15 global ranking.</p>
-      <a href="project2.html" class="project-link">View project &rarr;</a>
-    </div>
-
-    <div class="project-card reveal">
+      <p class="project-desc">Aerodynamic analysis, CAD modelling, and aircraft design with ARDC; presented at SAE International, top-15 global.</p>
+      <span class="project-cta">View project &rarr;</span>
+    </a>
+    <a href="project5.html" class="project-card reveal">
       <span class="project-tag">First Build</span>
       <h3 class="project-title">RC Plane Modelling and Flight Test</h3>
-      <p class="project-desc">Designed, built, and flight-tested a radio-controlled aircraft from concept to a successful, stable flight &mdash; the project that led to joining ARDC.</p>
-      <a href="project5.html" class="project-link">View project &rarr;</a>
-    </div>
-
+      <p class="project-desc">Designed, built, and flight-tested a radio-controlled aircraft &mdash; the project that led to joining ARDC.</p>
+      <span class="project-cta">View project &rarr;</span>
+    </a>
   </div>
 </section>
 
 <!-- ============ SKILLS ============ -->
 <section id="skills">
-  <div class="section-head reveal">
-    <span class="section-tag">05 / Skills</span>
-    <h2>Skills</h2>
-  </div>
+  <div class="section-head reveal"><span class="section-tag">04 / Skills</span><h2>My Skills</h2></div>
   <div class="panel reveal">
     <div class="skill-group">
       <div class="skill-group-title">Designing</div>
-      <div class="skill-tags">
-        <span class="skill-tag">SolidWorks</span><span class="skill-tag">CATIA V5</span><span class="skill-tag">AutoCAD</span><span class="skill-tag">GD&amp;T</span><span class="skill-tag">Tolerance Stack-Up Analysis</span>
-      </div>
+      <div class="skill-tags"><span class="skill-tag">SolidWorks</span><span class="skill-tag">CATIA V5</span><span class="skill-tag">AutoCAD</span><span class="skill-tag">GD&amp;T</span><span class="skill-tag">Tolerance Stack-Up Analysis</span></div>
     </div>
     <div class="skill-group">
       <div class="skill-group-title">Simulation and Analysis</div>
-      <div class="skill-tags">
-        <span class="skill-tag">ANSYS Fluent</span><span class="skill-tag">ANSYS CFX</span><span class="skill-tag">ANSYS ICEM CFD</span><span class="skill-tag">CFD</span><span class="skill-tag">FEA</span><span class="skill-tag">Mesh Convergence Studies</span>
-      </div>
+      <div class="skill-tags"><span class="skill-tag">ANSYS Fluent</span><span class="skill-tag">ANSYS CFX</span><span class="skill-tag">ANSYS ICEM CFD</span><span class="skill-tag">CFD</span><span class="skill-tag">FEA</span><span class="skill-tag">Mesh Convergence Studies</span></div>
     </div>
     <div class="skill-group">
       <div class="skill-group-title">Programming</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Python</span><span class="skill-tag">MATLAB</span><span class="skill-tag">HTML</span>
-      </div>
+      <div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">MATLAB</span><span class="skill-tag">HTML</span></div>
     </div>
     <div class="skill-group">
       <div class="skill-group-title">Soft Skills</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Technical Communication</span><span class="skill-tag">Cross-Functional Collaboration</span><span class="skill-tag">Report Writing</span><span class="skill-tag">Time Management</span>
-      </div>
+      <div class="skill-tags"><span class="skill-tag">Technical Communication</span><span class="skill-tag">Cross-Functional Collaboration</span><span class="skill-tag">Report Writing</span><span class="skill-tag">Time Management</span></div>
     </div>
   </div>
 </section>
 
 <!-- ============ CONTACT ============ -->
 <section id="contact">
-  <div class="section-head reveal">
-    <span class="section-tag">06 / Contact</span>
-    <h2>Get in Touch</h2>
-  </div>
+  <div class="section-head reveal"><span class="section-tag">05 / Contact</span><h2>Get in Touch</h2></div>
   <div class="contact-panel reveal">
     <form action="https://formspree.io/f/mzdjggdr" method="POST">
       <input type="text" name="name" placeholder="Your Name" required>
@@ -679,6 +461,7 @@ footer{
     <div class="contact-links">
       <a href="mailto:vedavyasrokalaboina1@gmail.com">vedavyasrokalaboina1@gmail.com</a>
       <a href="https://www.linkedin.com/in/vedavyas-rokalaboina/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/Vedavyaslucky" target="_blank">GitHub</a>
     </div>
   </div>
 </section>
@@ -686,66 +469,120 @@ footer{
 <footer>&copy; 2026 Vedavyas Rokalaboina</footer>
 
 <script>
-// Mobile nav toggle
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
 navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
 navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 
-// Scroll reveal
 const revealEls = document.querySelectorAll('.reveal');
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('in');
-      revealObserver.unobserve(entry.target);
-    }
+    if(entry.isIntersecting){ entry.target.classList.add('in'); revealObserver.unobserve(entry.target); }
   });
 }, {threshold:0.15});
 revealEls.forEach(el => revealObserver.observe(el));
 
-// Active nav link on scroll
 const sections = document.querySelectorAll('section[id]');
 const navAnchors = document.querySelectorAll('.nav-links a');
 const navObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if(entry.isIntersecting){
       const id = entry.target.getAttribute('id');
-      navAnchors.forEach(a => {
-        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
-      });
+      navAnchors.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
     }
   });
 }, {rootMargin:'-40% 0px -55% 0px'});
 sections.forEach(s => navObserver.observe(s));
 
-// Animated stat counters
-const statEls = document.querySelectorAll('.stat-num');
-const statObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      const el = entry.target;
-      const target = parseFloat(el.dataset.target);
-      const suffix = el.dataset.suffix || '';
-      const prefix = el.dataset.prefix || '';
-      const isDecimal = target % 1 !== 0;
-      let current = 0;
-      const step = target / 40;
-      const tick = () => {
-        current += step;
-        if(current >= target){
-          el.textContent = prefix + (isDecimal ? target.toFixed(1) : target) + suffix;
-        } else {
-          el.textContent = prefix + (isDecimal ? current.toFixed(1) : Math.floor(current)) + suffix;
-          requestAnimationFrame(tick);
-        }
-      };
-      tick();
-      statObserver.unobserve(el);
+/* animate a realistic jet flying along the hero flight path, with a fading contrail */
+function animatePlane(pathId, planeId, contrailId, duration){
+  const path = document.getElementById(pathId);
+  const plane = document.getElementById(planeId);
+  const contrail = document.getElementById(contrailId);
+  const len = path.getTotalLength();
+  let start = null;
+  let lastDot = 0;
+  const dots = [];
+  function frame(ts){
+    if(!start) start = ts;
+    let elapsed = (ts - start) % duration;
+    const pct = elapsed / duration;
+    const pt = path.getPointAtLength(pct * len);
+    const pt2 = path.getPointAtLength(Math.min(pct + 0.002, 1) * len);
+    const angle = Math.atan2(pt2.y - pt.y, pt2.x - pt.x) * 180 / Math.PI;
+    plane.setAttribute('transform', `translate(${pt.x - 17},${pt.y - 6}) rotate(${angle},17,6)`);
+
+    if(ts - lastDot > 90){
+      lastDot = ts;
+      const dot = document.createElementNS('http://www.w3.org/2000/svg','circle');
+      dot.setAttribute('cx', pt.x - 14);
+      dot.setAttribute('cy', pt.y);
+      dot.setAttribute('r', 2);
+      dot.setAttribute('class','contrail-dot');
+      dot.setAttribute('opacity', 0.4);
+      contrail.appendChild(dot);
+      dots.push({el:dot, born:ts});
     }
-  });
-}, {threshold:0.5});
-statEls.forEach(el => statObserver.observe(el));
+    for(let i = dots.length - 1; i >= 0; i--){
+      const age = ts - dots[i].born;
+      if(age > 1800){ dots[i].el.remove(); dots.splice(i,1); }
+      else{ dots[i].el.setAttribute('opacity', 0.4 * (1 - age/1800)); }
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+animatePlane('flightPathA','planeA','contrailA', 22000);
+
+/* ---------- Scroll-driven flight status sidebar ---------- */
+const fsPlane = document.getElementById('fsPlane');
+const fsStatus = document.getElementById('fsStatus');
+const fsAlt = document.getElementById('fsAlt');
+const fsTrackWrap = document.querySelector('.fs-track-wrap');
+
+let lastScrollY = window.scrollY;
+let idleTimer = null;
+const PLANE_MARGIN = 14;
+
+function setFlightUI(progress, state){
+  const trackHeight = fsTrackWrap.clientHeight;
+  const y = PLANE_MARGIN + progress * (trackHeight - PLANE_MARGIN * 2);
+  fsPlane.style.top = y + 'px';
+  fsStatus.style.top = y + 'px';
+  fsAlt.style.top = y + 'px';
+  fsAlt.textContent = Math.round((1 - progress) * 100) + '%';
+
+  let angle = 0;
+  if(state === 'climb') angle = -22;
+  else if(state === 'descend') angle = 22;
+  else angle = 0;
+  fsPlane.style.transform = `translate(-50%,-50%) rotate(${angle}deg)`;
+
+  const labels = { climb:'TAKE-OFF', descend:'LANDING', cruise:'CRUISING' };
+  fsStatus.textContent = labels[state];
+}
+
+function updateFlightStatus(){
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = docHeight > 0 ? Math.min(Math.max(window.scrollY / docHeight, 0), 1) : 0;
+
+  const delta = window.scrollY - lastScrollY;
+  lastScrollY = window.scrollY;
+
+  let state;
+  if(delta > 0.5) state = 'descend';
+  else if(delta < -0.5) state = 'climb';
+  else state = 'cruise';
+
+  setFlightUI(progress, state);
+
+  clearTimeout(idleTimer);
+  idleTimer = setTimeout(() => { setFlightUI(progress, 'cruise'); }, 450);
+}
+
+window.addEventListener('scroll', () => { requestAnimationFrame(updateFlightStatus); }, {passive:true});
+window.addEventListener('resize', updateFlightStatus);
+updateFlightStatus();
 </script>
 
 </body>
