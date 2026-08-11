@@ -2,86 +2,331 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>SAE Aero Design Competition</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAE Aero Design Competition | Vedavyas Rokalaboina</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
-
-body{
-font-family: Arial, sans-serif;
-background:#0f2027;
-color:white;
-margin:0;
-padding:40px;
-text-align:left;
+:root{
+  --navy-deep:#0A121C;
+  --navy-panel:#101B29;
+  --navy-panel-2:#152436;
+  --brass:#D9A94A;
+  --brass-dim:#8a6f36;
+  --ink:#E8EDF2;
+  --ink-dim:#8CA0B3;
+  --line:#22344A;
+  --display:'Space Grotesk',sans-serif;
+  --body:'IBM Plex Sans',sans-serif;
+  --mono:'IBM Plex Mono',monospace;
 }
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:var(--body);
+  background:var(--navy-deep);
+  color:var(--ink);
+  line-height:1.7;
+}
+body::before{
+  content:"";
+  position:fixed; inset:0;
+  background-image:
+    linear-gradient(rgba(217,169,74,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(217,169,74,0.035) 1px, transparent 1px);
+  background-size:48px 48px;
+  pointer-events:none;
+  z-index:0;
+}
+a{color:var(--brass);}
+
+.topbar{
+  position:relative; z-index:2;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:20px 40px;
+  border-bottom:1px solid var(--line);
+  background:rgba(10,18,28,0.85);
+}
+.back-link{
+  font-family:var(--mono);
+  font-size:13px;
+  text-decoration:none;
+  color:var(--ink-dim);
+  display:inline-flex; align-items:center; gap:8px;
+  transition:color 0.2s;
+}
+.back-link:hover{color:var(--brass);}
+.topbar .logo{font-family:var(--display); font-weight:600; color:var(--ink);}
+.topbar .logo span{color:var(--brass);}
+
+main{position:relative; z-index:1; max-width:1040px; margin:auto; padding:0 24px;}
+
+.proj-header{padding:64px 0 40px; text-align:center;}
+.proj-tag{
+  font-family:var(--mono);
+  color:var(--brass);
+  font-size:12px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+}
+.proj-title{
+  font-family:var(--display);
+  font-size:clamp(28px,4.5vw,44px);
+  font-weight:700;
+  margin:12px 0 18px;
+}
+.meta-row{
+  display:flex; gap:12px; justify-content:center; flex-wrap:wrap;
+  margin-bottom:8px;
+}
+.meta-chip{
+  font-family:var(--mono);
+  font-size:12px;
+  color:var(--ink-dim);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:6px 14px;
+}
+
+.reveal{opacity:0; transform:translateY(20px); transition:opacity 0.6s ease, transform 0.6s ease;}
+.reveal.in{opacity:1; transform:translateY(0);}
+
+.section{padding:36px 0;}
+.section-label{
+  font-family:var(--mono);
+  color:var(--brass);
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+  margin-bottom:10px;
+  display:block;
+}
+.panel{
+  background:var(--navy-panel);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:28px 32px;
+}
+.panel p{color:var(--ink-dim); font-size:15.5px; margin:0 0 16px;}
+.panel p:last-child{margin-bottom:0;}
+
+/* milestone strip */
+.milestones{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:16px;
+  margin-top:6px;
+}
+.milestone{
+  background:var(--navy-panel);
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:20px;
+  text-align:center;
+}
+.milestone-num{
+  font-family:var(--mono);
+  font-size:26px;
+  font-weight:600;
+  color:var(--brass);
+  display:block;
+}
+.milestone-label{
+  font-family:var(--body);
+  font-size:12px;
+  color:var(--ink-dim);
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+  margin-top:6px;
+}
+
+/* contribution list */
+.contrib-list{list-style:none; margin:0; padding:0; display:grid; gap:14px;}
+.contrib-list li{
+  display:flex; gap:12px;
+  color:var(--ink-dim);
+  font-size:15px;
+}
+.contrib-list li::before{
+  content:"";
+  flex-shrink:0;
+  width:8px; height:8px;
+  margin-top:7px;
+  border-radius:50%;
+  border:1.5px solid var(--brass);
+}
+.contrib-list b{color:var(--ink); font-weight:600;}
 
 .gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
-gap:30px;
-max-width:1100px;
-margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
 }
-
-figure{
-margin:0;
+figure{margin:0; cursor:pointer;}
+.img-frame{
+  width:100%;
+  aspect-ratio:4/3;
+  overflow:hidden;
+  border-radius:10px;
+  border:1px solid var(--line);
+  background:var(--navy-panel-2);
 }
-
-figure img{
-width:100%;
-height:auto;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.4);
+.img-frame img{
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform 0.4s ease;
 }
-
+figure:hover .img-frame img{transform:scale(1.06);}
 figcaption{
-margin-top:8px;
-font-size:14px;
-color:#ddd;
+  margin-top:10px;
+  font-family:var(--mono);
+  font-size:12.5px;
+  color:var(--ink-dim);
+  text-align:center;
 }
 
+.lightbox{
+  position:fixed; inset:0;
+  background:rgba(6,10,16,0.92);
+  display:none;
+  align-items:center; justify-content:center;
+  z-index:200;
+  padding:40px;
+}
+.lightbox.open{display:flex;}
+.lightbox img{max-width:92vw; max-height:82vh; border-radius:8px; border:1px solid var(--line);}
+.lightbox-cap{
+  position:absolute; bottom:28px; left:0; right:0;
+  text-align:center;
+  font-family:var(--mono); font-size:13px; color:var(--ink-dim);
+}
+.lightbox-close{
+  position:absolute; top:24px; right:32px;
+  font-family:var(--mono); color:var(--ink); font-size:14px;
+  background:none; border:1px solid var(--line); border-radius:6px;
+  padding:8px 14px; cursor:pointer;
+}
+.lightbox-close:hover{border-color:var(--brass); color:var(--brass);}
+
+footer{
+  position:relative; z-index:1;
+  text-align:center; padding:40px 24px;
+  border-top:1px solid var(--line);
+  margin-top:40px;
+  font-family:var(--mono); color:var(--ink-dim); font-size:12px;
+}
 </style>
 </head>
-
 <body>
 
-<h1>SAE Aero Design Competition</h1>
-
-<p style="max-width:900px;margin:auto;margin-bottom:40px;">
-Served as Technical Lead for the design and development of a large-scale radio-controlled aircraft for the SAE Aero Design Competition, organised by SAE International. The role involved leading the technical team responsible for aerodynamic analysis, structural evaluation, aircraft configuration development, and CAD modelling throughout the full design cycle. Responsibilities included conceptual aircraft configuration design, airfoil selection, aerodynamic optimisation, weight estimation, and structural reinforcement of critical components to ensure both performance efficiency and structural integrity.
-
-The aircraft design process involved extensive use of engineering software tools for aerodynamic simulation, structural analysis, and 3D modelling. Aerodynamic performance was evaluated through computational analysis to estimate lift, drag, and stability characteristics under various flight conditions. Structural evaluation was performed to ensure that the aircraft could safely withstand aerodynamic loads during take-off, cruise, and landing phases while maintaining optimal weight distribution. CAD modelling was used to design and manufacture the aircraft structure, including the wing, fuselage, landing gear system, and propulsion mounting systems.
-
-The project achieved national-level recognition at the SAE Aero Design National Championship held in Chennai, India. The team also participated in the SAE Aero Design International Competition held in Orlando, Florida, USA, where a large-scale radio-controlled aircraft with an approximate wingspan of 200 inches was successfully designed, built, and tested. The aircraft demonstrated strong aerodynamic efficiency, structural stability, and payload performance during flight evaluation. Competing against international teams from leading engineering institutions, the project secured 15th place at the international level, highlighting the team’s capabilities in aircraft conceptual design, aerodynamic optimisation, and large-scale prototype development.
-</p>
-
-<div class="gallery">
-
-<figure>
-<img src="SAE International 1.jpg">
-<figcaption>SAE International RC model</figcaption>
-</figure>
-
-<figure>
-<img src="SAE International.jpg">
-<figcaption>SAE International Team at runway in Florida, USA</figcaption>
-</figure>
-
-<figure>
-<img src="SAE National 1.jpg">
-<figcaption>SAE National RC model</figcaption>
-</figure>
-
-<figure>
-<img src="SAE National.jpg">
-<figcaption>SAE National model before Take - off</figcaption>
-</figure>
-
+<div class="topbar">
+  <div class="logo">VR<span>.</span></div>
+  <a href="index.html" class="back-link">&larr; Back to portfolio</a>
 </div>
 
-<br><br>
+<main>
 
-<a href="index.html" style="color:#00c6ff;">← Back to Portfolio</a>
+  <div class="proj-header reveal">
+    <span class="proj-tag">Competition &middot; ARDC, IARE</span>
+    <h1 class="proj-title">SAE Aero Design Competition</h1>
+    <div class="meta-row">
+      <span class="meta-chip">Apr 2022 &ndash; Feb 2024</span>
+      <span class="meta-chip">~200-inch wingspan</span>
+      <span class="meta-chip">Chennai &rarr; Orlando, Florida</span>
+    </div>
+  </div>
+
+  <div class="section reveal">
+    <span class="section-label">Overview</span>
+    <div class="panel">
+      <p>As part of a small, multi-disciplinary student team at ARDC, IARE, I contributed to the design and development of a large-scale radio-controlled aircraft for the SAE Aero Design Competition, organised by SAE International. The project spanned the full design cycle &mdash; conceptual configuration, aerofoil selection, aerodynamic optimisation, weight estimation, and structural reinforcement of the components that mattered most for keeping a ~200-inch wingspan aircraft intact under real flight loads.</p>
+      <p>The project first achieved national-level recognition at the SAE Aero Design National Championship in Chennai, India, which qualified the team for the SAE Aero Design International Competition in Orlando, Florida, USA.</p>
+    </div>
+  </div>
+
+  <div class="section reveal">
+    <span class="section-label">My Contribution</span>
+    <div class="panel">
+      <ul class="contrib-list">
+        <li><b>Aerodynamic analysis</b> &mdash; computational estimation of lift, drag, and stability across different flight conditions to inform the configuration.</li>
+        <li><b>Structural evaluation</b> &mdash; assessing whether the airframe could survive take-off, cruise, and landing loads without carrying unnecessary weight.</li>
+        <li><b>CAD modelling</b> &mdash; wing, fuselage, landing gear system, and propulsion mounting, using SolidWorks and CATIA V5, making sure every sub-assembly agreed geometrically before manufacture.</li>
+        <li><b>Design review</b> &mdash; helping compile the technical evidence base and contributing to the formal design review presented before appraisal panels at both competitions.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section reveal">
+    <span class="section-label">Result</span>
+    <div class="panel">
+      <p>Competing against international teams from leading engineering institutions, the aircraft demonstrated strong aerodynamic efficiency and structural stability during flight evaluation in Florida, securing a <strong style="color:var(--brass);">15th place finish globally</strong> out of the full international field.</p>
+      <div class="milestones">
+        <div class="milestone"><span class="milestone-num">15th</span><span class="milestone-label">Global Ranking</span></div>
+        <div class="milestone"><span class="milestone-num">200"</span><span class="milestone-label">Wingspan</span></div>
+        <div class="milestone"><span class="milestone-num">2</span><span class="milestone-label">Competitions</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section reveal">
+    <span class="section-label">Gallery</span>
+    <div class="gallery">
+      <figure onclick="openLightbox('SAE International.jpg','SAE International — team on the runway in Florida, USA')">
+        <div class="img-frame"><img src="SAE International.jpg" alt="SAE International team at runway in Florida, USA" loading="lazy"></div>
+        <figcaption>SAE International &mdash; team at the runway, Florida</figcaption>
+      </figure>
+      <figure onclick="openLightbox('SAE International 1.jpg','SAE International — the aircraft')">
+        <div class="img-frame"><img src="SAE International 1.jpg" alt="SAE International RC model" loading="lazy"></div>
+        <figcaption>SAE International &mdash; the aircraft</figcaption>
+      </figure>
+      <figure onclick="openLightbox('SAE National.jpg','SAE National — before take-off')">
+        <div class="img-frame"><img src="SAE National.jpg" alt="SAE National model before take-off" loading="lazy"></div>
+        <figcaption>SAE National &mdash; before take-off</figcaption>
+      </figure>
+      <figure onclick="openLightbox('SAE National 1.jpg','SAE National — the aircraft')">
+        <div class="img-frame"><img src="SAE National 1.jpg" alt="SAE National RC model" loading="lazy"></div>
+        <figcaption>SAE National &mdash; the aircraft</figcaption>
+      </figure>
+    </div>
+  </div>
+
+</main>
+
+<footer>&copy; 2026 Vedavyas Rokalaboina &middot; <a href="index.html">Back to portfolio</a></footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox(event)">Close &times;</button>
+  <img id="lightbox-img" src="" alt="">
+  <div class="lightbox-cap" id="lightbox-cap"></div>
+</div>
+
+<script>
+function openLightbox(src, cap){
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox-cap').textContent = cap;
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox(e){
+  if(e.target.id === 'lightbox' || e.target.classList.contains('lightbox-close')){
+    document.getElementById('lightbox').classList.remove('open');
+  }
+}
+
+const revealEls = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('in');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, {threshold:0.12});
+revealEls.forEach(el => revealObserver.observe(el));
+</script>
 
 </body>
 </html>
