@@ -2,101 +2,224 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Bio-Inspired Blended Wing Body Aircraft</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bio-Inspired Blended Wing Body Aircraft | Vedavyas Rokalaboina</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
-
-body{
-font-family: Arial, sans-serif;
-background:#0f2027;
-color:white;
-margin:0;
-padding:40px;
-text-align:left;
+:root{
+  --navy-deep:#0A121C; --navy-panel:#101B29; --navy-panel-2:#152436;
+  --brass:#D9A94A; --brass-dim:#8a6f36; --ink:#E8EDF2; --ink-dim:#8CA0B3; --line:#22344A;
+  --display:'Space Grotesk',sans-serif; --body:'IBM Plex Sans',sans-serif; --mono:'IBM Plex Mono',monospace;
 }
-
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
-gap:30px;
-max-width:1100px;
-margin:auto;
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{ margin:0; font-family:var(--body); background:var(--navy-deep); color:var(--ink); line-height:1.7; }
+body::before{
+  content:""; position:fixed; inset:0;
+  background-image:
+    linear-gradient(rgba(217,169,74,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(217,169,74,0.035) 1px, transparent 1px);
+  background-size:48px 48px; pointer-events:none; z-index:0;
 }
+a{color:var(--brass);}
+.topbar{ position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between; padding:20px 40px; border-bottom:1px solid var(--line); background:rgba(10,18,28,0.85); }
+.back-link{ font-family:var(--mono); font-size:13px; text-decoration:none; color:var(--ink-dim); display:inline-flex; align-items:center; gap:8px; transition:color 0.2s; }
+.back-link:hover{color:var(--brass);}
+.topbar .logo{font-family:var(--display); font-weight:600; color:var(--ink);}
+.topbar .logo span{color:var(--brass);}
+main{position:relative; z-index:1; max-width:1040px; margin:auto; padding:0 24px;}
+.proj-header{padding:64px 0 40px; text-align:center;}
+.proj-tag{ font-family:var(--mono); color:var(--brass); font-size:12px; letter-spacing:0.14em; text-transform:uppercase; }
+.proj-title{ font-family:var(--display); font-size:clamp(28px,4.5vw,44px); font-weight:700; margin:12px 0 18px; }
+.meta-row{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:8px; }
+.meta-chip{ font-family:var(--mono); font-size:12px; color:var(--ink-dim); border:1px solid var(--line); border-radius:20px; padding:6px 14px; }
+.reveal{opacity:0; transform:translateY(20px); transition:opacity 0.6s ease, transform 0.6s ease;}
+.reveal.in{opacity:1; transform:translateY(0);}
+.section{padding:36px 0;}
+.section-label{ font-family:var(--mono); color:var(--brass); font-size:12px; text-transform:uppercase; letter-spacing:0.12em; margin-bottom:10px; display:block; }
+.panel{ background:var(--navy-panel); border:1px solid var(--line); border-radius:10px; padding:28px 32px; }
+.panel p{color:var(--ink-dim); font-size:15.5px; margin:0 0 16px;}
+.panel p:last-child{margin-bottom:0;}
 
-figure{
-margin:0;
-}
+.spec-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:16px; margin-top:6px; }
+.spec-card{ background:var(--navy-panel); border:1px solid var(--line); border-radius:8px; padding:18px; text-align:center; }
+.spec-num{ font-family:var(--mono); font-size:20px; font-weight:600; color:var(--brass); display:block; }
+.spec-label{ font-family:var(--body); font-size:11.5px; color:var(--ink-dim); text-transform:uppercase; letter-spacing:0.04em; margin-top:6px; }
 
-figure img{
-width:100%;
-height:auto;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.4);
-display:block;
-}
+.contrib-list{list-style:none; margin:0; padding:0; display:grid; gap:14px;}
+.contrib-list li{ display:flex; gap:12px; color:var(--ink-dim); font-size:15px; }
+.contrib-list li::before{ content:""; flex-shrink:0; width:8px; height:8px; margin-top:7px; border-radius:50%; border:1.5px solid var(--brass); }
+.contrib-list b{color:var(--ink); font-weight:600;}
 
-figcaption{
-margin-top:8px;
-font-size:14px;
-color:#ddd;
-}
+/* winglet sweep interactive slider */
+.sweep-demo{ margin-top:18px; }
+.sweep-row{ display:flex; align-items:center; gap:16px; margin-bottom:10px; }
+.sweep-row input[type=range]{ flex:1; accent-color:var(--brass); }
+.sweep-val{ font-family:var(--mono); color:var(--brass); font-size:14px; min-width:70px; text-align:right; }
+.sweep-bar-track{ background:var(--navy-deep); border:1px solid var(--line); border-radius:6px; height:14px; overflow:hidden; margin-top:6px; }
+.sweep-bar-fill{ height:100%; background:linear-gradient(90deg,var(--brass-dim),var(--brass)); border-radius:6px; transition:width 0.3s ease; }
+.sweep-note{ font-family:var(--mono); font-size:12px; color:var(--ink-dim); margin-top:8px; }
 
+.gallery{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px; }
+figure{margin:0; cursor:pointer;}
+.img-frame{ width:100%; aspect-ratio:4/3; overflow:hidden; border-radius:10px; border:1px solid var(--line); background:var(--navy-panel-2); }
+.img-frame img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.4s ease; }
+figure:hover .img-frame img{transform:scale(1.06);}
+figcaption{ margin-top:10px; font-family:var(--mono); font-size:12.5px; color:var(--ink-dim); text-align:center; }
+
+.lightbox{ position:fixed; inset:0; background:rgba(6,10,16,0.92); display:none; align-items:center; justify-content:center; z-index:200; padding:40px; }
+.lightbox.open{display:flex;}
+.lightbox img{max-width:92vw; max-height:82vh; border-radius:8px; border:1px solid var(--line);}
+.lightbox-cap{ position:absolute; bottom:28px; left:0; right:0; text-align:center; font-family:var(--mono); font-size:13px; color:var(--ink-dim); }
+.lightbox-close{ position:absolute; top:24px; right:32px; font-family:var(--mono); color:var(--ink); font-size:14px; background:none; border:1px solid var(--line); border-radius:6px; padding:8px 14px; cursor:pointer; }
+.lightbox-close:hover{border-color:var(--brass); color:var(--brass);}
+
+footer{ position:relative; z-index:1; text-align:center; padding:40px 24px; border-top:1px solid var(--line); margin-top:40px; font-family:var(--mono); color:var(--ink-dim); font-size:12px; }
 </style>
 </head>
-
 <body>
 
-<h1>Bio-Inspired Blended Wing Body Aircraft</h1>
-
-<p style="max-width:900px;margin:auto;margin-bottom:40px;">
-Designed and optimised a bio-inspired Blended Wing Body (BWB) aircraft configuration, focusing on improving aerodynamic efficiency through innovative aircraft geometry and advanced computational analysis. The design process involved creating a highly integrated airframe where the wing and fuselage are blended into a single aerodynamic surface, reducing interference drag and improving overall lift distribution across the aircraft structure.
-
-The initial aircraft geometry was developed using SolidWorks, where the blended configuration was modelled to achieve smooth aerodynamic contours and balanced lift generation across the wing-body structure. Special attention was given to the integration of winglets and the aerodynamic transition between the central body and wing surfaces, ensuring an optimal distribution of aerodynamic loads and improved aerodynamic stability.
-
-The aerodynamic performance of the aircraft was analysed using Computational Fluid Dynamics (CFD) simulations conducted in ANSYS Fluent. Before performing the main aerodynamic study, the CFD framework was rigorously validated to ensure accuracy and reliability of the simulation results. This validation process included mesh convergence studies, where multiple mesh densities were tested to confirm that the simulation results remained consistent and independent of mesh resolution. In addition, the computational model was benchmarked against established aerodynamic data to verify the credibility of the simulation methodology.
-
-Following validation, a parametric aerodynamic study was conducted to analyse the influence of different winglet sweep angles on the aircraft’s aerodynamic performance. Several winglet configurations were tested under identical flow conditions to evaluate their impact on lift generation, drag reduction, and overall aerodynamic efficiency. The analysis identified the winglet configuration that produced the highest lift-to-drag (L/D) ratio, confirming that the optimised geometry significantly enhanced aerodynamic efficiency compared with alternative configurations.
-
-The results of the study demonstrated the aerodynamic advantages of the Blended Wing Body configuration, particularly in terms of reduced drag and improved lift efficiency. The optimised design showed strong potential for next-generation aircraft concepts that prioritise fuel efficiency, aerodynamic performance, and innovative structural integration.
-</p>
-
-<div class="gallery">
-
-<figure>
-<img src="stingray.jpg" alt="Stingray Fish">
-<figcaption>Stingray Fish (Bio-inspiration for the aircraft design)</figcaption>
-</figure>
-
-<figure>
-<img src="UAV - front.jpg" alt="UAV Front View">
-<figcaption>UAV model – front view</figcaption>
-</figure>
-
-<figure>
-<img src="UAV - top.jpg" alt="UAV Top View">
-<figcaption>UAV model – top view</figcaption>
-</figure>
-
-<figure>
-<img src="UAV - mesh.png" alt="UAV Mesh">
-<figcaption>CFD mesh model used for aerodynamic simulation</figcaption>
-</figure>
-
-<figure>
-<img src="UAV - pressure.png" alt="Pressure Contours">
-<figcaption>Pressure contour distribution across the aircraft surface</figcaption>
-</figure>
-
-<figure>
-<img src="UAV - streamline.png" alt="Streamline Analysis">
-<figcaption>Airflow streamline visualisation around the aircraft</figcaption>
-</figure>
-
+<div class="topbar">
+  <div class="logo">VR<span>.</span></div>
+  <a href="index.html" class="back-link">&larr; Back to portfolio</a>
 </div>
 
-<br><br>
+<main>
 
-<a href="index.html" style="color:#00c6ff;">← Back to Portfolio</a>
+  <div class="proj-header reveal">
+    <span class="proj-tag">MSc Dissertation</span>
+    <h1 class="proj-title">Bio-Inspired Blended Wing Body Aircraft</h1>
+    <div class="meta-row">
+      <span class="meta-chip">Apr 2025 &ndash; Sep 2025</span>
+      <span class="meta-chip">ANSYS Fluent &middot; k-omega SST</span>
+      <span class="meta-chip">&lt;1% validated deviation</span>
+    </div>
+  </div>
+
+  <div class="section reveal">
+    <span class="section-label">Overview</span>
+    <div class="panel">
+      <p>For my MSc dissertation, I designed and optimised a bio-inspired Blended Wing Body (BWB) aircraft configuration, where the wing and fuselage merge into a single continuous aerodynamic surface rather than meeting at a hard junction &mdash; reducing interference drag and improving lift distribution across the whole aircraft.</p>
+      <p>The initial geometry was inspired by the stingray's natural blended form, and modelled in SolidWorks to achieve smooth aerodynamic contours and balanced lift generation, with particular attention paid to how the winglets integrated with the central body.</p>
+    </div>
+  </div>
+
+  <div class="section reveal">
+    <span class="section-label">Validation Methodology</span>
+    <div class="panel">
+      <p>Before trusting a single result from the main study, I put real effort into validating the CFD framework itself &mdash; a CFD result you haven't checked against something real isn't much more than a nice picture.</p>
+      <div class="spec-grid">
+        <div class="spec-card"><span class="spec-num">1.9M</span><span class="spec-label">Mesh Elements</span></div>
+        <div class="spec-card"><span class="spec-num">4&times;10&sup6;</span><span class="spec-label">Reynolds Number</span></div>
+        <div class="spec-card"><span class="spec-num">40 m/s</span><span class="spec-label">Free-Stream Velocity</span></div>
+        <div class="spec-card"><span class="spec-num">4&deg;</span><span class="spec-label">Angle of Attack</span></div>
+        <div class="spec-card"><span class="spec-num">&lt;1%</span><span class="spec-label">Benchmark Deviation</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section reveal">
+    <span class="section-label">Winglet Sweep Study</span>
+    <div class="panel">
+      <p>With the framework validated, I ran a parametric study across several winglet sweep angles, testing each under identical flow conditions to evaluate lift generation, drag, and overall aerodynamic efficiency.</p>
+      <div class="sweep-demo">
+        <div class="sweep-row">
+          <span style="font-family:var(--mono); font-size:13px; color:var(--ink-dim);">Sweep angle</span>
+          <input type="range" min="30" max="60" step="1" value="38" id="sweepSlider">
+          <span class="sweep-val" id="sweepVal">38&deg;</span>
+        </div>
+        <div class="sweep-bar-track"><div class="sweep-bar-fill" id="sweepFill" style="width:0%;"></div></div>
+        <p class="sweep-note" id="sweepNote">Relative L/D efficiency at this sweep angle (illustrative of the study's trend)</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section reveal">
+    <span class="section-label">Result</span>
+    <div class="panel">
+      <p>A <strong style="color:var(--brass);">38&deg; sweep</strong> came out clearly ahead, producing the highest lift-to-drag ratio of every configuration tested. The results confirmed the aerodynamic advantages of the Blended Wing Body layout &mdash; meaningfully reduced drag and improved lift efficiency compared with the alternatives, the kind of result that makes the case for why configurations like this keep coming up in conversations about the next generation of more fuel-efficient aircraft.</p>
+    </div>
+  </div>
+
+  <div class="section reveal">
+    <span class="section-label">Gallery</span>
+    <div class="gallery">
+      <figure onclick="openLightbox('stingray.jpg','Stingray — the biological inspiration for the aircraft form')">
+        <div class="img-frame"><img src="stingray.jpg" alt="Stingray, the biological inspiration for the aircraft design" loading="lazy"></div>
+        <figcaption>Bio-inspiration: the stingray</figcaption>
+      </figure>
+      <figure onclick="openLightbox('UAV - front.jpg','Blended wing body aircraft — front view')">
+        <div class="img-frame"><img src="UAV - front.jpg" alt="Blended wing body aircraft, front view" loading="lazy"></div>
+        <figcaption>Aircraft model &mdash; front view</figcaption>
+      </figure>
+      <figure onclick="openLightbox('UAV - top.jpg','Blended wing body aircraft — top view')">
+        <div class="img-frame"><img src="UAV - top.jpg" alt="Blended wing body aircraft, top view" loading="lazy"></div>
+        <figcaption>Aircraft model &mdash; top view</figcaption>
+      </figure>
+      <figure onclick="openLightbox('UAV - mesh.png','CFD mesh used for aerodynamic simulation')">
+        <div class="img-frame"><img src="UAV - mesh.png" alt="CFD mesh model used for aerodynamic simulation" loading="lazy"></div>
+        <figcaption>CFD mesh</figcaption>
+      </figure>
+      <figure onclick="openLightbox('UAV - pressure.png','Pressure contour distribution across the aircraft surface')">
+        <div class="img-frame"><img src="UAV - pressure.png" alt="Pressure contour distribution across the aircraft surface" loading="lazy"></div>
+        <figcaption>Pressure contours</figcaption>
+      </figure>
+      <figure onclick="openLightbox('UAV - streamline.png','Airflow streamline visualisation around the aircraft')">
+        <div class="img-frame"><img src="UAV - streamline.png" alt="Airflow streamline visualisation around the aircraft" loading="lazy"></div>
+        <figcaption>Streamline visualisation</figcaption>
+      </figure>
+    </div>
+  </div>
+
+</main>
+
+<footer>&copy; 2026 Vedavyas Rokalaboina &middot; <a href="index.html">Back to portfolio</a></footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox(event)">Close &times;</button>
+  <img id="lightbox-img" src="" alt="">
+  <div class="lightbox-cap" id="lightbox-cap"></div>
+</div>
+
+<script>
+function openLightbox(src, cap){
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox-cap').textContent = cap;
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox(e){
+  if(e.target.id === 'lightbox' || e.target.classList.contains('lightbox-close')){
+    document.getElementById('lightbox').classList.remove('open');
+  }
+}
+const revealEls = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('in');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, {threshold:0.12});
+revealEls.forEach(el => revealObserver.observe(el));
+
+/* Illustrative L/D-vs-sweep curve peaking at 38deg, purely for the interactive demo */
+const sweepSlider = document.getElementById('sweepSlider');
+const sweepVal = document.getElementById('sweepVal');
+const sweepFill = document.getElementById('sweepFill');
+function updateSweep(){
+  const v = parseInt(sweepSlider.value);
+  sweepVal.textContent = v + '\u00b0';
+  const dist = Math.abs(v - 38);
+  const pct = Math.max(35, 100 - dist * 4.5);
+  sweepFill.style.width = pct + '%';
+}
+sweepSlider.addEventListener('input', updateSweep);
+updateSweep();
+</script>
 
 </body>
 </html>
