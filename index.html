@@ -141,6 +141,10 @@ h2{ font-family:var(--display); font-size:clamp(26px,4vw,36px); font-weight:600;
 .tl-role{ font-family:var(--display); font-size:16px; font-weight:600; margin:4px 0 2px; color:var(--ink); }
 .tl-org{ font-family:var(--body); font-size:13px; color:var(--ink-dim); margin-bottom:8px; }
 .tl-desc{ color:var(--ink-dim); font-size:14px; margin:0; }
+.tl-bullets{ list-style:none; margin:8px 0 0; padding:0; display:grid; gap:10px; }
+.tl-bullets li{ display:flex; gap:10px; color:var(--ink-dim); font-size:14px; }
+.tl-bullets li::before{ content:""; flex-shrink:0; width:6px; height:6px; margin-top:7px; border-radius:50%; border:1.5px solid var(--brass); }
+.tl-bullets b{ color:var(--ink); font-weight:600; }
 
 /* projects grid */
 .project-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
@@ -269,6 +273,7 @@ footer{ position:relative; z-index:1; text-align:center; padding:30px 24px; bord
   <button class="nav-toggle" id="navToggle">&#9776;</button>
   <ul class="nav-links" id="navLinks">
     <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#skills">Skills</a></li>
@@ -312,7 +317,7 @@ footer{ position:relative; z-index:1; text-align:center; padding:30px 24px; bord
       <div class="orbit-icon orbit-icon-3" title="Engineering"><svg viewBox="0 0 24 24" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></div>
       <div class="orbit-icon orbit-icon-4" title="Navigation"><svg viewBox="0 0 24 24" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7l2.5 5L12 17l-2.5-5z"/></svg></div>
     </div>
-    <img src="profile.jpg" class="avatar" alt="Vedavyas Rokalaboina">
+    <img src="profile.jpeg" class="avatar" alt="Vedavyas Rokalaboina">
   </div>
 
   <span class="eyebrow">MSc Aeronautical Engineer</span>
@@ -337,7 +342,7 @@ footer{ position:relative; z-index:1; text-align:center; padding:30px 24px; bord
 <section id="about">
   <div class="section-head reveal"><span class="section-tag">01 / About</span><h2>About Me</h2></div>
   <div class="about-grid reveal">
-    <img src="profile.jpg" class="about-photo" alt="Vedavyas Rokalaboina">
+    <img src="profile.jpeg" class="about-photo" alt="Vedavyas Rokalaboina">
     <div class="about-text">
       <p>MSc Aeronautical Engineering graduate from the University of South Wales with hands-on experience across mechanical design, CAD modelling, CFD/FEA simulation, and technical documentation. Comfortable taking a design from first-principles calculation through detailed CAD, simulation, and validation against real or published data.</p>
       <p>Experienced with SolidWorks, CATIA V5, and ANSYS Fluent/CFX, with a strong focus on GD&amp;T, tolerance stack-up analysis, and rigorous mesh-convergence-validated simulation. Also an independent software builder, having designed and deployed a Python aircraft sizing tool from scratch.</p>
@@ -345,46 +350,57 @@ footer{ position:relative; z-index:1; text-align:center; padding:30px 24px; bord
   </div>
 </section>
 
-<!-- ============ EXPERIENCE ============ -->
-<section id="experience">
-  <div class="section-head reveal"><span class="section-tag">02 / Background</span><h2>Education &amp; Experience</h2></div>
-  <div class="two-col">
-    <div class="reveal">
-      <div class="col-title">Education</div>
-      <div class="tl-item">
-        <span class="tl-date">Sep 2024 &ndash; Sep 2025</span>
-        <h3 class="tl-role">MSc Aeronautical Engineering</h3>
-        <p class="tl-org">University of South Wales, UK</p>
-        <p class="tl-desc">Flight Vehicle Systems Design, Computational Structural Analysis, Advanced Fluid Dynamics Modelling, Computational Simulation Techniques.</p>
-      </div>
-      <div class="tl-item">
-        <span class="tl-date">Dec 2020 &ndash; Apr 2024</span>
-        <h3 class="tl-role">BTech Aeronautical Engineering</h3>
-        <p class="tl-org">Institute of Aeronautical Engineering, India</p>
-        <p class="tl-desc">Engineering Materials Technology, Structural Dynamics, Mechanical Vibration Analysis, Aerodynamics, Advanced CAD Modelling.</p>
-      </div>
+<!-- ============ EDUCATION ============ -->
+<section id="education">
+  <div class="section-head reveal"><span class="section-tag">02 / Background</span><h2>Education</h2></div>
+  <div class="reveal">
+    <div class="tl-item">
+      <span class="tl-date">Sep 2024 &ndash; Sep 2025</span>
+      <h3 class="tl-role">MSc Aeronautical Engineering</h3>
+      <p class="tl-org">University of South Wales, UK</p>
+      <p class="tl-desc">Flight Vehicle Systems Design, Computational Structural Analysis, Advanced Fluid Dynamics Modelling, Computational Simulation Techniques.</p>
     </div>
-    <div class="reveal">
-      <div class="col-title">Work Experience</div>
-      <div class="tl-item">
-        <span class="tl-date">Mar 2024 &ndash; Sep 2025</span>
-        <h3 class="tl-role">Mechanical Design Engineer <span style="font-weight:400; color:var(--ink-dim); font-size:13px;">(Part-time, Remote)</span></h3>
-        <p class="tl-org">Abhuday Bharat Projects Pvt Ltd</p>
-        <p class="tl-desc">Mechanical design, CAD, GD&amp;T, tolerance stack-up validation, CFD/FEA support, and cross-disciplinary liaison with electrical/controls engineers, alongside full-time MSc study.</p>
-      </div>
-      <div class="tl-item">
-        <span class="tl-date">Apr 2022 &ndash; Feb 2024</span>
-        <h3 class="tl-role">Design Team Member</h3>
-        <p class="tl-org">ARDC, IARE</p>
-        <p class="tl-desc">Design calculations, hands-on fabrication, and lab testing of a 200-inch wing structure assembly, presented at SAE International to a top-15 global ranking.</p>
-      </div>
+    <div class="tl-item">
+      <span class="tl-date">Dec 2020 &ndash; Apr 2024</span>
+      <h3 class="tl-role">BTech Aeronautical Engineering</h3>
+      <p class="tl-org">Institute of Aeronautical Engineering, India</p>
+      <p class="tl-desc">Engineering Materials Technology, Structural Dynamics, Mechanical Vibration Analysis, Aerodynamics, Advanced CAD Modelling.</p>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="section-head reveal"><span class="section-tag">03 / Background</span><h2>Work Experience</h2></div>
+  <div class="reveal">
+    <div class="tl-item">
+      <span class="tl-date">Mar 2024 &ndash; Sep 2025</span>
+      <h3 class="tl-role">Mechanical Design Engineer <span style="font-weight:400; color:var(--ink-dim); font-size:13px;">(Part-time, Remote)</span></h3>
+      <p class="tl-org">Abhuday Bharat Projects Pvt Ltd</p>
+      <ul class="tl-bullets">
+        <li><span><b>CAD &amp; Drafting:</b> Worked remotely and part-time alongside full-time MSc study, supporting mechanical design and configuration of hardware components in SolidWorks and CATIA V5, converting specifications into manufacturing-ready 3D models and producing 2D technical drawings with full GD&amp;T annotation.</span></li>
+        <li><span><b>Interference &amp; Tolerance Checks:</b> Ran interference checks across assemblies and validated tolerance stack-ups before releasing 2D drawings for machining.</span></li>
+        <li><span><b>Cross-Functional Liaison:</b> Liaised with the electrical/controls team on packaging and space envelopes for integrated hardware, coordinating design intent across disciplines to agreed specifications.</span></li>
+        <li><span><b>Simulation Support:</b> Supported CFD and structural FEA analysis in ANSYS Fluent to model mechanical load reactions and track performance data against design targets.</span></li>
+        <li><span><b>Documentation:</b> Helped maintain engineering documentation, bills of material, and validation records to support the transition from prototype to production.</span></li>
+        <li><span><b>Design Corrections:</b> Supported root cause analysis on mechanical assemblies, contributing engineering calculations toward design corrections that improved one component's strength-to-weight margin by approximately 15%.</span></li>
+      </ul>
+    </div>
+    <div class="tl-item">
+      <span class="tl-date">Apr 2022 &ndash; Feb 2024</span>
+      <h3 class="tl-role">Design Team Member</h3>
+      <p class="tl-org">ARDC, IARE</p>
+      <ul class="tl-bullets">
+        <li><span><b>Concept to Physical Build:</b> Part of a small, multi-disciplinary student team that took a 200-inch wing structure assembly from concept through drafting, hands-on fabrication (laser cutting, precision drilling, manual workshop tooling), and lab testing, iterating the physical build directly off test results.</span></li>
+        <li><span><b>Design Calculations:</b> Developed design calculations and parametric models in XFLR5 and SolidWorks to run continuous performance loops, lifting baseline structural efficiency metrics by 20%.</span></li>
+        <li><span><b>Design Review Contribution:</b> Helped compile technical evidence and contributed to the project's design review presented before appraisal panels at the SAE International competition (USA), achieving a top-15 global ranking out of the full international field.</span></li>
+      </ul>
     </div>
   </div>
 </section>
 
 <!-- ============ PROJECTS ============ -->
 <section id="projects">
-  <div class="section-head reveal"><span class="section-tag">03 / Projects</span><h2>My Projects</h2></div>
+  <div class="section-head reveal"><span class="section-tag">04 / Projects</span><h2>My Projects</h2></div>
   <div class="project-grid">
     <a href="https://aircraftsizing.streamlit.app/" target="_blank" class="project-card project-featured reveal">
       <span class="project-tag">Personal Project &middot; Live</span>
@@ -427,7 +443,7 @@ footer{ position:relative; z-index:1; text-align:center; padding:30px 24px; bord
 
 <!-- ============ SKILLS ============ -->
 <section id="skills">
-  <div class="section-head reveal"><span class="section-tag">04 / Skills</span><h2>My Skills</h2></div>
+  <div class="section-head reveal"><span class="section-tag">05 / Skills</span><h2>My Skills</h2></div>
   <div class="panel reveal">
     <div class="skill-group">
       <div class="skill-group-title">Designing</div>
@@ -450,7 +466,7 @@ footer{ position:relative; z-index:1; text-align:center; padding:30px 24px; bord
 
 <!-- ============ CONTACT ============ -->
 <section id="contact">
-  <div class="section-head reveal"><span class="section-tag">05 / Contact</span><h2>Get in Touch</h2></div>
+  <div class="section-head reveal"><span class="section-tag">06 / Contact</span><h2>Get in Touch</h2></div>
   <div class="contact-panel reveal">
     <form action="https://formspree.io/f/mzdjggdr" method="POST">
       <input type="text" name="name" placeholder="Your Name" required>
